@@ -11,6 +11,7 @@ from typing import Any, Dict, Optional
 from .chains import get_chain
 from .intake import active_target
 from .io import write_json
+from .secrets import secret_values
 
 EIP1967_IMPLEMENTATION_SLOT = "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
 EIP1967_ADMIN_SLOT = "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103"
@@ -78,9 +79,13 @@ class RpcClient:
 
 def rpc_endpoints(chain: str) -> tuple[str, ...]:
     config = get_chain(chain)
-    configured = os.environ.get(config.rpc_env, "").strip()
+    configured = secret_values(
+        os.environ.get(config.rpc_env, ""),
+        scalar_fields=("url", "rpc_url", "endpoint", "value"),
+        list_fields=("urls", "rpc_urls", "endpoints", "items"),
+    )
     if configured:
-        return (configured,) + config.public_rpc
+        return configured + config.public_rpc
     return config.public_rpc
 
 
@@ -168,4 +173,3 @@ def main(argv: Optional[list[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

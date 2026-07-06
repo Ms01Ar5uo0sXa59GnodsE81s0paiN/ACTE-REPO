@@ -15,6 +15,7 @@ class ChainConfig:
     rpc_env: str
     public_rpc: tuple[str, ...]
     etherscan_v2_chain_id: int | None = None
+    api_key_fallback_envs: tuple[str, ...] = ()
 
     def explorer_url(self, address: str) -> str:
         return f"https://{self.explorer_host}/address/{address}"
@@ -26,10 +27,12 @@ CHAINS: Dict[str, ChainConfig] = {
         chain_id=56,
         native_symbol="BNB",
         explorer_host="bscscan.com",
-        explorer_api_url="https://api.bscscan.com/api",
+        explorer_api_url="https://api.etherscan.io/v2/api",
         api_key_env="BSCSCAN_API_KEY",
         rpc_env="BSC_RPC_URL",
         public_rpc=("https://bsc-dataseed.binance.org", "https://bsc-rpc.publicnode.com"),
+        etherscan_v2_chain_id=56,
+        api_key_fallback_envs=("ETHERSCAN_API_KEY",),
     ),
     "ethereum": ChainConfig(
         key="ethereum",

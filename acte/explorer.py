@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
 from .chains import get_chain
+from .secrets import first_secret_value, secret_values
 
 
 class ExplorerError(RuntimeError):
@@ -43,13 +44,30 @@ def fetch_json(url: str, params: Dict[str, str], timeout: int = 30) -> Dict[str,
     return data
 
 
+def resolve_api_key(raw_value: str) -> str:
+    values = secret_values(
+        raw_value,
+        scalar_fields=("api_key", "apikey", "key", "value"),
+        list_fields=("keys", "api_keys", "items"),
+    )
+    return values[0] if values else ""
+
+
+def resolve_api_key_from_env(config: Any) -> str:
+    return first_secret_value(
+        (config.api_key_env, *config.api_key_fallback_envs),
+        scalar_fields=("api_key", "apikey", "key", "value"),
+        list_fields=("keys", "api_keys", "items"),
+    )
+
+
 def fetch_source_record(chain: str, address: str) -> SourceRecord:
     config = get_chain(chain)
     params = {
         "module": "contract",
         "action": "getsourcecode",
         "address": address,
-        "apikey": os.environ.get(config.api_key_env, ""),
+        "apikey": resolve_api_key_from_env(config),
     }
     if config.etherscan_v2_chain_id is not None:
         params["chainid"] = str(config.etherscan_v2_chain_id)

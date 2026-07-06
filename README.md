@@ -16,7 +16,7 @@ The first supported path is intentionally narrow:
 
 The deploy script checks GitHub `/user` with that token. If `--expected-owner` is provided and the token owner does not match, the script exits before creating a repo or pushing.
 
-Explorer API keys are optional but recommended:
+Explorer API keys are optional but recommended. GitHub secrets may be either a plain string or JSON such as `["key1", "key2"]` / `{"api_keys":["key1","key2"]}`; ACTE uses the first non-empty value.
 
 - `BSCSCAN_API_KEY`
 - `ETHERSCAN_API_KEY`
@@ -24,7 +24,9 @@ Explorer API keys are optional but recommended:
 - `BASESCAN_API_KEY`
 - `OPTIMISTIC_ETHERSCAN_API_KEY`
 
-RPC secrets are required for live-context capture on the matching chain:
+Etherscan API V2 is used for BSC as well, with `chainid=56`. For BSC targets, `BSCSCAN_API_KEY` may contain an Etherscan V2 key; if it is empty, ACTE falls back to `ETHERSCAN_API_KEY`.
+
+RPC secrets are required for live-context capture on the matching chain. GitHub secrets may be either a plain URL or JSON such as `["https://rpc1", "https://rpc2"]` / `{"rpc_urls":["https://rpc1","https://rpc2"]}`; ACTE tries configured URLs before public fallbacks.
 
 - `BSC_RPC_URL`
 - `ETHEREUM_RPC_URL`

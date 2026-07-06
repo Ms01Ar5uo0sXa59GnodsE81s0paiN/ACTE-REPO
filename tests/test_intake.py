@@ -30,11 +30,12 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(record["paths"]["foundry_dir"], "foundry_targets/bsc/0x0000000000000000000000000000000000001004")
         self.assertEqual(record["workflow"]["1_materialize_verified_foundry"], "pending")
 
-    def test_bsc_uses_native_bscscan_api_key(self):
+    def test_bsc_uses_etherscan_v2_with_bsc_fallback_secret(self):
         chain = get_chain("bsc")
-        self.assertEqual(chain.explorer_api_url, "https://api.bscscan.com/api")
+        self.assertEqual(chain.explorer_api_url, "https://api.etherscan.io/v2/api")
         self.assertEqual(chain.api_key_env, "BSCSCAN_API_KEY")
-        self.assertIsNone(chain.etherscan_v2_chain_id)
+        self.assertEqual(chain.etherscan_v2_chain_id, 56)
+        self.assertEqual(chain.api_key_fallback_envs, ("ETHERSCAN_API_KEY",))
 
 
 if __name__ == "__main__":

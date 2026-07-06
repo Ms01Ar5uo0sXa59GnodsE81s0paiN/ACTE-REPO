@@ -20,8 +20,8 @@ Create these under GitHub repository settings:
 | Secret | Required for | Format |
 | --- | --- | --- |
 | `ACTE_DEPLOY_TOKEN` | Workflow `5 Push To GitHub Account` | GitHub PAT string owned by `Ms01Ar5uo0sXa59GnodsE81s0paiN`; needs permission to create repositories and push contents |
-| `BSCSCAN_API_KEY` | Workflow `1 Materialize Verified Foundry` for BSC targets | Plain BscScan API key string |
-| `BSC_RPC_URL` | Workflow `3 Collect Live Context` for BSC targets | Full HTTPS RPC URL, for example `https://...` |
+| `BSCSCAN_API_KEY` | Workflow `1 Materialize Verified Foundry` for BSC targets | Etherscan API V2 key as a plain string, `["key1","key2"]`, or `{"api_keys":["key1","key2"]}`. BSC now uses `https://api.etherscan.io/v2/api?chainid=56`. |
+| `BSC_RPC_URL` | Workflow `3 Collect Live Context` for BSC targets | Full HTTPS RPC URL as a plain string, `["https://rpc1","https://rpc2"]`, or `{"rpc_urls":["https://rpc1","https://rpc2"]}` |
 
 ## Optional Chain Secrets
 
@@ -29,7 +29,7 @@ Add these only when the active target is on that chain:
 
 | Secret | Format |
 | --- | --- |
-| `ETHERSCAN_API_KEY` | Plain Etherscan API key string |
+| `ETHERSCAN_API_KEY` | Plain Etherscan API key string or JSON key list; also used as the fallback for BSC if `BSCSCAN_API_KEY` is empty |
 | `ARBISCAN_API_KEY` | Plain Arbiscan API key string |
 | `BASESCAN_API_KEY` | Plain BaseScan API key string |
 | `OPTIMISTIC_ETHERSCAN_API_KEY` | Plain Optimism Etherscan API key string |
@@ -68,4 +68,3 @@ For workflow `5 Push To GitHub Account`, use:
 | `private` | `true` or `false` |
 | `dry_run` | `true` first, then `false` after verification |
 | `branch` | `master` |
-
