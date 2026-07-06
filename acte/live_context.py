@@ -108,10 +108,14 @@ def decode_address_word(word: str) -> str:
     return ""
 
 
+def target_live_address(target: Dict[str, Any]) -> str:
+    return str(target.get("proxy_address") or target["address"]).lower()
+
+
 def collect_context(target: Dict[str, Any]) -> Dict[str, Any]:
     config = get_chain(target["chain"])
     client = RpcClient(rpc_endpoints(config.key))
-    address = target["address"]
+    address = target_live_address(target)
     latest_block = client.block_number()
     code = client.get_code(address)
     native_balance = client.get_balance(address)
@@ -120,6 +124,13 @@ def collect_context(target: Dict[str, Any]) -> Dict[str, Any]:
         "eip1967_admin": client.get_storage_at(address, EIP1967_ADMIN_SLOT),
         "eip1967_beacon": client.get_storage_at(address, EIP1967_BEACON_SLOT),
     }
+    slot_implementation = word_to_address(slots["eip1967_implementation"])
+    implementation_address = target.get("implementation_address") or slot_implementation
+    implementation_code = ""
+    implementation_balance = 0
+    if implementation_address and implementation_address != address:
+        implementation_code = client.get_code(implementation_address)
+        implementation_balance = client.get_balance(implementation_address)
     views = {
         "owner": decode_address_word(try_call(client, address, "0x8da5cb5b")),
         "admin": decode_address_word(try_call(client, address, "0xf851a440")),
@@ -138,6 +149,11 @@ def collect_context(target: Dict[str, Any]) -> Dict[str, Any]:
         "latest_block": latest_block,
         "target": {
             "address": address,
+            "input_address": target.get("input_address") or target["address"],
+            "proxy_address": target.get("proxy_address") or "",
+            "implementation_address": implementation_address or "",
+            "source_address": target.get("source_address") or implementation_address or address,
+            "deployment_kind": "proxy" if (target.get("proxy_address") or slot_implementation) else "implementation_or_direct",
             "label": target["label"],
             "explorer_url": target["explorer_url"],
             "code_size_bytes": max((len(code) - 2) // 2, 0),
@@ -146,14 +162,22 @@ def collect_context(target: Dict[str, Any]) -> Dict[str, Any]:
         },
         "proxy_slots": {
             "implementation_raw": slots["eip1967_implementation"],
-            "implementation": word_to_address(slots["eip1967_implementation"]),
+            "implementation": slot_implementation,
             "admin_raw": slots["eip1967_admin"],
             "admin": word_to_address(slots["eip1967_admin"]),
             "beacon_raw": slots["eip1967_beacon"],
             "beacon": word_to_address(slots["eip1967_beacon"]),
         },
+        "implementation": {
+            "address": implementation_address or "",
+            "provided": bool(target.get("implementation_address")),
+            "resolved_from_eip1967": bool(slot_implementation and not target.get("implementation_address")),
+            "code_size_bytes": max((len(implementation_code) - 2) // 2, 0) if implementation_code else 0,
+            "native_balance_wei": implementation_balance,
+        },
         "common_views": views,
         "audit_notes": [
+            "Live balances, storage slots, and common view calls are captured from the proxy/live address when a proxy is present.",
             "Private mappings and structs are not globally enumerable without known keys.",
             "DeepWiki candidates must be checked against this block-specific live state before proof.",
         ],

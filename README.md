@@ -52,4 +52,25 @@ python3 scripts/run_collect_live_context.py
 python3 scripts/run_deploy_github.py --repo-name acte-target-example --expected-owner DESTINATION_GITHUB_LOGIN --branch master
 ```
 
+## Proxy Address Modes
+
+ACTE supports BSC with `--chain bsc` and Ethereum mainnet with `--chain ethereum` or `--chain eth`.
+
+Use one of these intake modes:
+
+```sh
+# Implementation/direct-only: source and live context use this address.
+python3 scripts/run_intake_address.py --chain eth --address 0xIMPLEMENTATION --label example
+
+# Proxy-only: live context uses the proxy address; materialization tries explorer
+# proxy metadata first, then the EIP-1967 implementation slot before fetching source.
+python3 scripts/run_intake_address.py --chain bsc --address 0xPROXY --label example
+
+# Proxy plus known implementation: live balance/storage comes from the proxy,
+# verified Solidity source is fetched from the implementation.
+python3 scripts/run_intake_address.py --chain bsc --address 0xPROXY --implementation-address 0xIMPLEMENTATION --label example
+```
+
+Package paths stay under the live/proxy address. `addresses.json`, `audit_seed.json`, and `live_context.json` record `proxy_address`, `implementation_address`, and `source_address` so later proof steps know which address owns balances/storage and which address owns source code.
+
 The materializer requires verified source. If the explorer does not return verified source, ACTE writes a source-incomplete bundle and refuses to mark the Foundry project audit-ready.

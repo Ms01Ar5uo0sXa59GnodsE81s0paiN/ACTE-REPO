@@ -6,6 +6,9 @@ on:
       - master
     paths:
       - ".github/workflows/5_push_to_github_account.yml"
+      - "acte/github_deploy.py"
+      - "scripts/run_deploy_github.py"
+      - "tests/test_github_deploy.py"
   workflow_dispatch:
     inputs:
       repo_name:

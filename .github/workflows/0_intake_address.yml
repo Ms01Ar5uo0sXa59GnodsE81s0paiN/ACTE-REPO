@@ -15,6 +15,14 @@ on:
       address:
         description: "Raw address or explorer URL"
         required: true
+      proxy_address:
+        description: "Optional proxy address or explorer URL. Leave blank for implementation/direct-only targets."
+        required: false
+        default: ""
+      implementation_address:
+        description: "Optional implementation address or explorer URL. Use with a proxy when already known."
+        required: false
+        default: ""
       label:
         description: "Human-readable label"
         required: false
@@ -53,6 +61,8 @@ jobs:
           python3 scripts/run_intake_address.py \
             --chain "${{ inputs.chain }}" \
             --address "${{ inputs.address }}" \
+            --proxy-address "${{ inputs.proxy_address }}" \
+            --implementation-address "${{ inputs.implementation_address }}" \
             --label "${{ inputs.label }}" \
             --protocol "${{ inputs.protocol }}" \
             --target-type "${{ inputs.target_type }}"

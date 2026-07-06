@@ -9,7 +9,8 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 from .explorer import SourceRecord, fetch_source_record, source_bundle
-from .intake import active_target
+from .intake import active_target, normalize_address
+from .live_context import EIP1967_IMPLEMENTATION_SLOT, RpcClient, rpc_endpoints, word_to_address
 from .io import read_json, safe_relative_path, write_json
 
 
@@ -101,6 +102,63 @@ def read_source_record_from_file(path: str | Path) -> SourceRecord:
     )
 
 
+def _target_live_address(target: Dict[str, Any]) -> str:
+    return str(target.get("proxy_address") or target["address"]).lower()
+
+
+def _provided_implementation_address(target: Dict[str, Any]) -> str:
+    value = str(target.get("implementation_address") or "").strip()
+    if not value:
+        return ""
+    return normalize_address(value)
+
+
+def _normalized_optional_address(value: str) -> str:
+    value = str(value or "").strip()
+    if not value:
+        return ""
+    try:
+        return normalize_address(value)
+    except ValueError:
+        return ""
+
+
+def _resolve_eip1967_implementation(chain: str, proxy_address: str) -> str:
+    try:
+        client = RpcClient(rpc_endpoints(chain))
+        return word_to_address(client.get_storage_at(proxy_address, EIP1967_IMPLEMENTATION_SLOT))
+    except Exception:
+        return ""
+
+
+def resolve_source_record(target: Dict[str, Any]) -> SourceRecord:
+    """Fetch the source record that should be audited for this target.
+
+    Balances and mutable storage belong to the live/proxy address. Solidity
+    source often belongs to the implementation address, so proxy targets are
+    resolved before materializing the Foundry package.
+    """
+    chain = target["chain"]
+    live_address = _target_live_address(target)
+    provided_implementation = _provided_implementation_address(target)
+    if provided_implementation:
+        return fetch_source_record(chain, provided_implementation)
+
+    live_record = fetch_source_record(chain, live_address)
+    explorer_implementation = _normalized_optional_address(live_record.implementation)
+    rpc_implementation = ""
+    wants_proxy_resolution = bool(target.get("proxy_address") or target.get("target_type") == "proxy" or live_record.proxy)
+    if wants_proxy_resolution and not explorer_implementation:
+        rpc_implementation = _resolve_eip1967_implementation(chain, live_address)
+
+    implementation = explorer_implementation or rpc_implementation
+    if implementation and implementation != live_address:
+        return fetch_source_record(chain, implementation)
+    if live_record.proxy and not implementation:
+        raise RuntimeError(f"proxy implementation could not be resolved for {chain}:{live_address}")
+    return live_record
+
+
 def source_record_from_standard_json(
     *,
     path: str | Path,
@@ -111,7 +169,7 @@ def source_record_from_standard_json(
     source_code = Path(path).read_text(encoding="utf-8")
     return SourceRecord(
         chain=target["chain"],
-        address=target["address"],
+        address=target.get("implementation_address") or target.get("source_address") or target["address"],
         verified=True,
         contract_name=contract_name,
         compiler_version=compiler_version,
@@ -156,12 +214,25 @@ def materialize_foundry_project(target: Dict[str, Any], source_record: SourceRec
     (project_dir / "aarc-audit").mkdir(parents=True, exist_ok=True)
 
     write_json(source_artifacts / "source_response.json", serializable_source_record(source_record))
+    live_address = _target_live_address(target)
+    source_address = normalize_address(source_record.address)
+    proxy_address = str(target.get("proxy_address") or "")
+    is_proxy = bool(proxy_address or source_record.proxy or source_address != live_address)
+    implementation_address = str(target.get("implementation_address") or "")
+    if is_proxy and not implementation_address and source_address != live_address:
+        implementation_address = source_address
+
     write_json(project_dir / "addresses.json", {
         "chain": target["chain"],
         "chain_id": target["chain_id"],
-        "address": target["address"],
-        "proxy": source_record.proxy,
-        "implementation": source_record.implementation,
+        "address": live_address,
+        "input_address": target.get("input_address") or target["address"],
+        "live_context_address": live_address,
+        "proxy_address": proxy_address or (live_address if is_proxy else ""),
+        "implementation_address": implementation_address,
+        "source_address": source_address,
+        "proxy": is_proxy,
+        "implementation": implementation_address,
         "explorer_url": target["explorer_url"],
     })
 
@@ -170,10 +241,11 @@ def materialize_foundry_project(target: Dict[str, Any], source_record: SourceRec
             "schema_version": "acte-source-incomplete-v1",
             "reason": "Explorer did not return verified Solidity source.",
             "chain": target["chain"],
-            "address": target["address"],
+            "address": source_address,
+            "live_context_address": live_address,
         }
         write_json(source_artifacts / "source_incomplete.json", incomplete)
-        raise RuntimeError(f"source is not verified for {target['chain']}:{target['address']}")
+        raise RuntimeError(f"source is not verified for {target['chain']}:{source_address}")
 
     bundle = source_bundle(source_record)
     write_sources(project_dir, bundle["sources"])
@@ -191,12 +263,13 @@ def materialize_foundry_project(target: Dict[str, Any], source_record: SourceRec
     readme = f"""# {target['label']} Foundry Target
 
 - Chain: `{target['chain']}` ({target['chain_id']})
-- Address: `{target['address']}`
+- Live address: `{live_address}`
+- Proxy address: `{proxy_address or (live_address if is_proxy else '')}`
+- Implementation/source address: `{implementation_address or source_address}`
 - Explorer: {target['explorer_url']}
 - Contract: `{source_record.contract_name}`
 - Compiler: `{source_record.compiler_version}`
-- Proxy: `{source_record.proxy}`
-- Implementation: `{source_record.implementation or ''}`
+- Proxy: `{is_proxy}`
 
 ## Gates
 
@@ -263,7 +336,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             compiler_version=args.compiler_version or "0.8.20",
         )
     else:
-        source_record = fetch_source_record(target["chain"], target["address"])
+        source_record = resolve_source_record(target)
     project = materialize_foundry_project(target, source_record)
     print(f"materialized: {project}")
     return 0

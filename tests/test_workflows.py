@@ -15,6 +15,7 @@ class WorkflowConfigTests(unittest.TestCase):
         workflow = Path(".github/workflows/5_push_to_github_account.yml").read_text()
 
         self.assertIn("validate-deploy-token:", workflow)
+        self.assertIn("acte/github_deploy.py", workflow)
         self.assertIn("--repo-name acte-token-validation", workflow)
         self.assertIn("--dry-run", workflow)
 

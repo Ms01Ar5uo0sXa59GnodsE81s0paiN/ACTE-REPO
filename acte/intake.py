@@ -61,22 +61,45 @@ def build_target_record(
     label: str,
     target_type: str,
     protocol: str,
+    proxy_address: str = "",
+    implementation_address: str = "",
 ) -> Dict[str, Any]:
-    chain_key, address = parse_target(target, chain)
+    chain_key, input_address = parse_target(target, chain)
     config = get_chain(chain_key)
-    display = label or protocol or address
+    parsed_proxy = ""
+    parsed_implementation = ""
+    if proxy_address:
+        proxy_chain, parsed_proxy = parse_target(proxy_address, chain_key)
+        if proxy_chain != config.key:
+            raise ValueError(f"proxy chain {proxy_chain!r} does not match target chain {config.key!r}")
+    if implementation_address:
+        implementation_chain, parsed_implementation = parse_target(implementation_address, chain_key)
+        if implementation_chain != config.key:
+            raise ValueError(f"implementation chain {implementation_chain!r} does not match target chain {config.key!r}")
+
+    # Existing callers pass a single address. When an implementation is supplied
+    # without an explicit proxy address, treat the primary address as the proxy.
+    live_address = parsed_proxy or input_address
+    effective_proxy = parsed_proxy or (input_address if parsed_implementation else "")
+    source_address = parsed_implementation or input_address
+    display = label or protocol or live_address
     return {
         "schema_version": TARGET_SCHEMA,
         "active": True,
         "chain": config.key,
         "chain_id": config.chain_id,
         "native_symbol": config.native_symbol,
-        "address": address,
+        "address": live_address,
+        "input_address": input_address,
+        "proxy_address": effective_proxy,
+        "implementation_address": parsed_implementation,
+        "source_address": source_address,
+        "deployment_kind": "proxy" if effective_proxy else "implementation_or_direct",
         "label": display,
         "protocol": protocol or display,
         "target_type": target_type,
-        "explorer_url": config.explorer_url(address),
-        "paths": target_paths(config.key, address),
+        "explorer_url": config.explorer_url(live_address),
+        "paths": target_paths(config.key, live_address),
         "workflow": {
             "0_intake_address": "complete",
             "1_materialize_verified_foundry": "pending",
@@ -140,6 +163,10 @@ def audit_seed(record: Dict[str, Any]) -> Dict[str, Any]:
         "chain": record["chain"],
         "chain_id": record["chain_id"],
         "address": record["address"],
+        "proxy_address": record.get("proxy_address") or "",
+        "implementation_address": record.get("implementation_address") or "",
+        "source_address": record.get("source_address") or record["address"],
+        "deployment_kind": record.get("deployment_kind") or "implementation_or_direct",
         "label": record["label"],
         "explorer_url": record["explorer_url"],
         "foundry_dir": record["paths"]["foundry_dir"],
@@ -170,6 +197,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser.add_argument("--label", default="")
     parser.add_argument("--protocol", default="")
     parser.add_argument("--target-type", default="contract")
+    parser.add_argument("--proxy-address", default="", help="Optional proxy address or explorer URL.")
+    parser.add_argument("--implementation-address", default="", help="Optional implementation address or explorer URL.")
     args = parser.parse_args(argv)
 
     record = build_target_record(
@@ -178,10 +207,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         label=args.label,
         protocol=args.protocol,
         target_type=args.target_type,
+        proxy_address=args.proxy_address,
+        implementation_address=args.implementation_address,
     )
     paths = write_target(record)
     print(f"registered {record['chain']}:{record['address']}")
     for name, path in paths.items():
         print(f"{name}: {path}")
     return 0
-
