@@ -1,0 +1,37 @@
+{
+  "audit_notes": [
+    "Private mappings and structs are not globally enumerable without known keys.",
+    "DeepWiki candidates must be checked against this block-specific live state before proof."
+  ],
+  "captured_at": "2026-07-06T07:18:01Z",
+  "chain": "bsc",
+  "chain_id": 56,
+  "common_views": {
+    "admin": "",
+    "decimals": null,
+    "factory": "",
+    "owner": "",
+    "token0": "",
+    "token1": "",
+    "totalSupply": null
+  },
+  "latest_block": 108363190,
+  "proxy_slots": {
+    "admin": "",
+    "admin_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "beacon": "",
+    "beacon_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "implementation": "",
+    "implementation_raw": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "rpc_endpoint_used": "https://rpc.ankr.com/bsc/1e369e330339301de50a0f3583179c4e28b0c68f5ce0da98bce061a35ea2df4c",
+  "schema_version": "acte-live-context-v1",
+  "target": {
+    "address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "code_size_bytes": 18315,
+    "explorer_url": "https://bscscan.com/address/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "label": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "native_balance_wei": 0,
+    "native_symbol": "BNB"
+  }
+}
