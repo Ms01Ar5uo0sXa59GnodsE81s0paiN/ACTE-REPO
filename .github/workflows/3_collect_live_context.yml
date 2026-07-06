@@ -1,0 +1,35 @@
+name: 3 Collect Live Context
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  live-context:
+    runs-on: ubuntu-latest
+    env:
+      BSC_RPC_URL: ${{ secrets.BSC_RPC_URL }}
+      ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
+      ARBITRUM_RPC_URL: ${{ secrets.ARBITRUM_RPC_URL }}
+      BASE_RPC_URL: ${{ secrets.BASE_RPC_URL }}
+      OPTIMISM_RPC_URL: ${{ secrets.OPTIMISM_RPC_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect live context
+        run: python3 scripts/run_collect_live_context.py
+
+      - name: Commit live context
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f setup targets
+          git commit -m "ACTE collect live context" || echo "No changes to commit"
+          git pull --rebase origin master || git pull --rebase origin main || true
+          git push

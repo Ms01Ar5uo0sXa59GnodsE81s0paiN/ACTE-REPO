@@ -1,0 +1,35 @@
+{
+  "active_target": "bsc:0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+  "schema_version": "acte-target-registry-v1",
+  "targets": [
+    {
+      "active": true,
+      "address": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+      "chain": "bsc",
+      "chain_id": 56,
+      "explorer_url": "https://bscscan.com/address/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+      "label": "Uniswap V4 PoolManager",
+      "native_symbol": "BNB",
+      "paths": {
+        "audit_seed": "targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df/audit_seed.json",
+        "contract_graph": "targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df/contract_graph.json",
+        "deploy_manifest": "targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df/github_deploy.json",
+        "entrypoints": "targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df/entrypoints.json",
+        "foundry_dir": "foundry_targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+        "live_context": "targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df/live_context.json",
+        "source_response": "foundry_targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df/source-artifacts/source_response.json",
+        "target_dir": "targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df"
+      },
+      "protocol": "Uniswap V4",
+      "schema_version": "acte-target-v1",
+      "target_type": "pool_manager",
+      "workflow": {
+        "0_intake_address": "complete",
+        "1_materialize_verified_foundry": "pending",
+        "2_verify_foundry_build": "pending",
+        "3_collect_live_context": "pending",
+        "5_push_to_github_account": "pending"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+name: 5 Push To GitHub Account
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: "Repository name to create under the deploy-token account"
+        required: true
+      expected_owner:
+        description: "GitHub login that must own ACTE_DEPLOY_TOKEN"
+        required: true
+      private:
+        description: "Create private repository"
+        required: false
+        default: "false"
+      dry_run:
+        description: "Verify token owner and package path without creating/pushing"
+        required: false
+        default: "false"
+      branch:
+        description: "Branch to push in the created target repository"
+        required: false
+        default: "master"
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      ACTE_DEPLOY_TOKEN: ${{ secrets.ACTE_DEPLOY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Deploy with guarded token owner
+        run: |
+          private_flag=""
+          dry_flag=""
+          if [ "${{ inputs.private }}" = "true" ]; then private_flag="--private"; fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then dry_flag="--dry-run"; fi
+          python3 scripts/run_deploy_github.py \
+            --repo-name "${{ inputs.repo_name }}" \
+            --expected-owner "${{ inputs.expected_owner }}" \
+            --branch "${{ inputs.branch }}" \
+            $private_flag \
+            $dry_flag
+
+      - name: Commit deploy manifest
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f setup targets packages
+          git commit -m "ACTE record GitHub deploy manifest" || echo "No changes to commit"
+          git pull --rebase origin master || git pull --rebase origin main || true
+          git push

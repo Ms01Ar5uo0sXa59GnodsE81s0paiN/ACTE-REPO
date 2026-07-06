@@ -1,0 +1,16 @@
+{
+  "address": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+  "chain": "bsc",
+  "chain_id": 56,
+  "explorer_url": "https://bscscan.com/address/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+  "foundry_dir": "foundry_targets/bsc/0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+  "label": "Uniswap V4 PoolManager",
+  "required_gates": [
+    "verified source fetched",
+    "Foundry project builds",
+    "runtime identity checked against live deployment",
+    "live context captured at a concrete block",
+    "GitHub deploy owner verified from token"
+  ],
+  "schema_version": "acte-audit-seed-v1"
+}

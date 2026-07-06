@@ -1,0 +1,35 @@
+name: 1 Materialize Verified Foundry
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    env:
+      BSCSCAN_API_KEY: ${{ secrets.BSCSCAN_API_KEY }}
+      ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+      ARBISCAN_API_KEY: ${{ secrets.ARBISCAN_API_KEY }}
+      BASESCAN_API_KEY: ${{ secrets.BASESCAN_API_KEY }}
+      OPTIMISTIC_ETHERSCAN_API_KEY: ${{ secrets.OPTIMISTIC_ETHERSCAN_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch verified source and write Foundry project
+        run: python3 scripts/run_materialize_verified_foundry.py
+
+      - name: Commit Foundry target
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f foundry_targets targets setup
+          git commit -m "ACTE materialize verified Foundry target" || echo "No changes to commit"
+          git pull --rebase origin master || git pull --rebase origin main || true
+          git push

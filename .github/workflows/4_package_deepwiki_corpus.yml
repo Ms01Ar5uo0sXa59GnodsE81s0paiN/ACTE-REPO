@@ -1,0 +1,29 @@
+name: 4 Package DeepWiki Corpus
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Package active Foundry target
+        run: python3 scripts/run_package_deepwiki_corpus.py
+
+      - name: Commit package
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f packages
+          git commit -m "ACTE package DeepWiki corpus" || echo "No changes to commit"
+          git pull --rebase origin master || git pull --rebase origin main || true
+          git push

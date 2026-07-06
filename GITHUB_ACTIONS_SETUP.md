@@ -1,0 +1,71 @@
+# GitHub Actions Setup
+
+This repo is configured to run from `origin master`.
+
+## Repository
+
+- Owner: `Ms01Ar5uo0sXa59GnodsE81s0paiN`
+- Repository: `ACTE-REPO`
+- Remote URL: `https://github.com/Ms01Ar5uo0sXa59GnodsE81s0paiN/ACTE-REPO.git`
+- Branch: `master`
+
+Create the GitHub repository before pushing if it does not already exist.
+
+## Required Secrets
+
+Create these under GitHub repository settings:
+
+`Settings -> Secrets and variables -> Actions -> New repository secret`
+
+| Secret | Required for | Format |
+| --- | --- | --- |
+| `ACTE_DEPLOY_TOKEN` | Workflow `5 Push To GitHub Account` | GitHub PAT string owned by `Ms01Ar5uo0sXa59GnodsE81s0paiN`; needs permission to create repositories and push contents |
+| `BSCSCAN_API_KEY` | Workflow `1 Materialize Verified Foundry` for BSC targets | Plain BscScan API key string |
+| `BSC_RPC_URL` | Workflow `3 Collect Live Context` for BSC targets | Full HTTPS RPC URL, for example `https://...` |
+
+## Optional Chain Secrets
+
+Add these only when the active target is on that chain:
+
+| Secret | Format |
+| --- | --- |
+| `ETHERSCAN_API_KEY` | Plain Etherscan API key string |
+| `ARBISCAN_API_KEY` | Plain Arbiscan API key string |
+| `BASESCAN_API_KEY` | Plain BaseScan API key string |
+| `OPTIMISTIC_ETHERSCAN_API_KEY` | Plain Optimism Etherscan API key string |
+| `ETHEREUM_RPC_URL` | Full HTTPS Ethereum RPC URL |
+| `ARBITRUM_RPC_URL` | Full HTTPS Arbitrum RPC URL |
+| `BASE_RPC_URL` | Full HTTPS Base RPC URL |
+| `OPTIMISM_RPC_URL` | Full HTTPS Optimism RPC URL |
+
+## Smoke Test
+
+Run locally before pushing:
+
+```sh
+python3 -m unittest discover -v
+```
+
+The GitHub workflow `Smoke Test` runs the same unit smoke gate on `master`.
+
+## Workflow Order
+
+Run these manually from the GitHub Actions tab:
+
+1. `0 Intake Address`
+2. `1 Materialize Verified Foundry`
+3. `2 Verify Foundry Build`
+4. `3 Collect Live Context`
+5. `4 Package DeepWiki Corpus`
+6. `5 Push To GitHub Account`
+
+For workflow `5 Push To GitHub Account`, use:
+
+| Input | Value |
+| --- | --- |
+| `expected_owner` | `Ms01Ar5uo0sXa59GnodsE81s0paiN` |
+| `repo_name` | The new target package repository name |
+| `private` | `true` or `false` |
+| `dry_run` | `true` first, then `false` after verification |
+| `branch` | `master` |
+

@@ -1,0 +1,55 @@
+name: 0 Intake Address
+
+on:
+  workflow_dispatch:
+    inputs:
+      chain:
+        description: "Chain key for raw address input"
+        required: true
+        default: "bsc"
+      address:
+        description: "Raw address or explorer URL"
+        required: true
+      label:
+        description: "Human-readable label"
+        required: false
+        default: ""
+      protocol:
+        description: "Protocol/project name"
+        required: false
+        default: ""
+      target_type:
+        description: "contract, token, pool, vault, proxy, reward_pool"
+        required: false
+        default: "contract"
+
+permissions:
+  contents: write
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Register target
+        run: |
+          python3 scripts/run_intake_address.py \
+            --chain "${{ inputs.chain }}" \
+            --address "${{ inputs.address }}" \
+            --label "${{ inputs.label }}" \
+            --protocol "${{ inputs.protocol }}" \
+            --target-type "${{ inputs.target_type }}"
+
+      - name: Commit target state
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f setup targets
+          git commit -m "ACTE intake target" || echo "No changes to commit"
+          git pull --rebase origin master || git pull --rebase origin main || true
+          git push
