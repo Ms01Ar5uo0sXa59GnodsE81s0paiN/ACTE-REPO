@@ -23,7 +23,7 @@ Create these under GitHub repository settings:
 | `BSCSCAN_API_KEY` | Workflow `1 Materialize Verified Foundry` for BSC targets | Etherscan API V2 key as a plain string, `["key1","key2"]`, or `{"api_keys":["key1","key2"]}`. BSC now uses `https://api.etherscan.io/v2/api?chainid=56`. |
 | `BSC_RPC_URL` | Workflow `3 Collect Live Context` for BSC targets | Full HTTPS RPC URL as a plain string, `["https://rpc1","https://rpc2"]`, or `{"rpc_urls":["https://rpc1","https://rpc2"]}` |
 
-## Required Variables
+## Optional Variables
 
 Create these under GitHub repository settings:
 
@@ -31,7 +31,7 @@ Create these under GitHub repository settings:
 
 | Variable | Required for | Format |
 | --- | --- | --- |
-| `ACTE_TARGET_GITHUB_OWNER` | Workflow `5 Push To GitHub Account` | Exact GitHub login for the destination account that owns `ACTE_DEPLOY_TOKEN` |
+| `ACTE_TARGET_GITHUB_OWNER` | Optional extra guard for workflow `5 Push To GitHub Account` | Exact GitHub login for the destination account that owns `ACTE_DEPLOY_TOKEN`; do not put a PAT here |
 
 ## Optional Chain Secrets
 
@@ -73,7 +73,7 @@ For workflow `5 Push To GitHub Account`, use:
 
 | Input | Value |
 | --- | --- |
-| `expected_owner` | Destination GitHub login, or leave blank to use `ACTE_TARGET_GITHUB_OWNER` |
+| `expected_owner` | Destination GitHub login, or leave blank to use the `ACTE_DEPLOY_TOKEN` owner |
 | `repo_name` | The new target package repository name |
 | `private` | `true` or `false` |
 | `dry_run` | `true` first, then `false` after verification |

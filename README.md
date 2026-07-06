@@ -34,9 +34,9 @@ RPC secrets are required for live-context capture on the matching chain. GitHub 
 - `BASE_RPC_URL`
 - `OPTIMISM_RPC_URL`
 
-For the deployment account, create `ACTE_DEPLOY_TOKEN` from the destination GitHub account and set repository variable `ACTE_TARGET_GITHUB_OWNER` to that exact login. Workflow `5 Push To GitHub Account` also accepts an `expected_owner` input for one-off runs; if both are set, the workflow input wins.
+For the deployment account, create `ACTE_DEPLOY_TOKEN` from the destination GitHub account. Repository variable `ACTE_TARGET_GITHUB_OWNER` is optional; when set, it must be the destination GitHub login, not a PAT. Workflow `5 Push To GitHub Account` also accepts an `expected_owner` input for one-off runs; if both are set, the workflow input wins.
 
-- `expected_owner`: destination GitHub login, or leave blank to use `ACTE_TARGET_GITHUB_OWNER`
+- `expected_owner`: destination GitHub login, or leave blank to use the `ACTE_DEPLOY_TOKEN` owner
 - `repo_name`: target package repository name, for example `acte-target-example`
 - `private`: `true` or `false`
 - `dry_run`: `true` first, then `false` after owner/package verification

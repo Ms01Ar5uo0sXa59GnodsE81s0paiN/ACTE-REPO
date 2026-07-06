@@ -45,6 +45,19 @@ class GitHubDeployTests(unittest.TestCase):
                     dry_run=True,
                 )
 
+    def test_forbidden_owner_fails_before_deploy(self):
+        with tempfile.TemporaryDirectory() as tmp, patch("acte.github_deploy.GitHubClient", FakeGitHubClient):
+            with self.assertRaises(GitHubDeployError):
+                deploy_package(
+                    package_dir=Path(tmp),
+                    repo_name="target-repo",
+                    token="secret-token",
+                    expected_owner="",
+                    forbidden_owner="alice",
+                    private=False,
+                    dry_run=True,
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

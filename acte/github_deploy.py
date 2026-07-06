@@ -95,6 +95,7 @@ def deploy_package(
     repo_name: str,
     token: str,
     expected_owner: str,
+    forbidden_owner: str = "",
     private: bool,
     branch: str = "master",
     dry_run: bool = False,
@@ -106,6 +107,10 @@ def deploy_package(
     if expected_owner and login.lower() != expected_owner.lower():
         raise GitHubDeployError(
             f"ACTE_DEPLOY_TOKEN belongs to {login!r}, not expected owner {expected_owner!r}; refusing deploy"
+        )
+    if forbidden_owner and login.lower() == forbidden_owner.lower():
+        raise GitHubDeployError(
+            f"ACTE_DEPLOY_TOKEN belongs to forbidden owner {login!r}; refusing to deploy back into the controller account"
         )
     owner = login
     remote_url = f"https://github.com/{owner}/{repo_name}.git"
@@ -138,6 +143,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Deploy active ACTE target package to the token owner's GitHub account.")
     parser.add_argument("--repo-name", required=True)
     parser.add_argument("--expected-owner", default=os.environ.get("ACTE_EXPECTED_GITHUB_OWNER", ""))
+    parser.add_argument("--forbidden-owner", default=os.environ.get("ACTE_FORBIDDEN_GITHUB_OWNER", ""))
     parser.add_argument("--private", action="store_true")
     parser.add_argument("--branch", default="master")
     parser.add_argument("--dry-run", action="store_true")
@@ -151,6 +157,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         repo_name=args.repo_name,
         token=token,
         expected_owner=args.expected_owner,
+        forbidden_owner=args.forbidden_owner,
         private=args.private,
         branch=args.branch,
         dry_run=args.dry_run,

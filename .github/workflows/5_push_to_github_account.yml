@@ -38,6 +38,25 @@ jobs:
     steps:
       - run: echo "Workflow indexed for manual runs."
 
+  validate-deploy-token:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      ACTE_DEPLOY_TOKEN: ${{ secrets.ACTE_DEPLOY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate deploy token owner
+        run: |
+          python3 scripts/run_deploy_github.py \
+            --repo-name acte-token-validation \
+            --forbidden-owner "${{ github.repository_owner }}" \
+            --dry-run
+
   deploy:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
@@ -57,9 +76,15 @@ jobs:
           if [ -z "$expected_owner" ]; then
             expected_owner="$ACTE_TARGET_GITHUB_OWNER"
           fi
-          if [ -z "$expected_owner" ]; then
-            echo "::error::Set workflow input expected_owner or repository variable ACTE_TARGET_GITHUB_OWNER to the GitHub login that should receive deployed target repos."
-            exit 1
+          expected_owner_flag=()
+          case "$expected_owner" in
+            ghp_*|github_pat_*|gho_*|ghu_*|ghs_*|ghr_*)
+              echo "::warning::ACTE_TARGET_GITHUB_OWNER looks like a token, not a GitHub login; ignoring it and using ACTE_DEPLOY_TOKEN owner."
+              expected_owner=""
+              ;;
+          esac
+          if [ -n "$expected_owner" ]; then
+            expected_owner_flag=(--expected-owner "$expected_owner")
           fi
           private_flag=""
           dry_flag=""
@@ -67,8 +92,9 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then dry_flag="--dry-run"; fi
           python3 scripts/run_deploy_github.py \
             --repo-name "${{ inputs.repo_name }}" \
-            --expected-owner "$expected_owner" \
+            --forbidden-owner "${{ github.repository_owner }}" \
             --branch "${{ inputs.branch }}" \
+            "${expected_owner_flag[@]}" \
             $private_flag \
             $dry_flag
 
