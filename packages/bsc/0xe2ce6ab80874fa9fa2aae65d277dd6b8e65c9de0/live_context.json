@@ -1,0 +1,50 @@
+{
+  "audit_notes": [
+    "Live balances, storage slots, and common view calls are captured from the proxy/live address when a proxy is present.",
+    "Private mappings and structs are not globally enumerable without known keys.",
+    "DeepWiki candidates must be checked against this block-specific live state before proof."
+  ],
+  "captured_at": "2026-07-06T09:44:02Z",
+  "chain": "bsc",
+  "chain_id": 56,
+  "common_views": {
+    "admin": "",
+    "decimals": null,
+    "factory": "",
+    "owner": "",
+    "token0": "",
+    "token1": "",
+    "totalSupply": null
+  },
+  "implementation": {
+    "address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+    "code_size_bytes": 18392,
+    "native_balance_wei": 0,
+    "provided": true,
+    "resolved_from_eip1967": false
+  },
+  "latest_block": 108382650,
+  "proxy_slots": {
+    "admin": "0xb2480c2d17bf4510701c4def374de6d22e039bd4",
+    "admin_raw": "0x000000000000000000000000b2480c2d17bf4510701c4def374de6d22e039bd4",
+    "beacon": "",
+    "beacon_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "implementation": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+    "implementation_raw": "0x000000000000000000000000eb6c62d1885c421797d0c494e693c90d4b54125a"
+  },
+  "rpc_endpoint_used": "https://rpc.ankr.com/bsc/1e369e330339301de50a0f3583179c4e28b0c68f5ce0da98bce061a35ea2df4c",
+  "schema_version": "acte-live-context-v1",
+  "target": {
+    "address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+    "code_size_bytes": 2882,
+    "deployment_kind": "proxy",
+    "explorer_url": "https://bscscan.com/address/0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+    "implementation_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+    "input_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+    "label": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+    "native_balance_wei": 1361664283849714242664,
+    "native_symbol": "BNB",
+    "proxy_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+    "source_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a"
+  }
+}
