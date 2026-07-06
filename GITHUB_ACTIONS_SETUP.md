@@ -1,15 +1,15 @@
 # GitHub Actions Setup
 
-This repo is configured to run from `origin master`.
+This controller repo is configured to run from `origin master`.
 
-## Repository
+## Current Controller Repository
 
 - Owner: `Ms01Ar5uo0sXa59GnodsE81s0paiN`
 - Repository: `ACTE-REPO`
 - Remote URL: `https://github.com/Ms01Ar5uo0sXa59GnodsE81s0paiN/ACTE-REPO.git`
 - Branch: `master`
 
-Create the GitHub repository before pushing if it does not already exist.
+This is only the controller repository that runs the ACTE workflows. Workflow `5 Push To GitHub Account` deploys target packages to the separate account represented by `ACTE_DEPLOY_TOKEN`.
 
 ## Required Secrets
 
@@ -19,9 +19,19 @@ Create these under GitHub repository settings:
 
 | Secret | Required for | Format |
 | --- | --- | --- |
-| `ACTE_DEPLOY_TOKEN` | Workflow `5 Push To GitHub Account` | GitHub PAT string owned by `Ms01Ar5uo0sXa59GnodsE81s0paiN`; needs permission to create repositories and push contents |
+| `ACTE_DEPLOY_TOKEN` | Workflow `5 Push To GitHub Account` | GitHub PAT string owned by the destination account; needs permission to create repositories and push contents |
 | `BSCSCAN_API_KEY` | Workflow `1 Materialize Verified Foundry` for BSC targets | Etherscan API V2 key as a plain string, `["key1","key2"]`, or `{"api_keys":["key1","key2"]}`. BSC now uses `https://api.etherscan.io/v2/api?chainid=56`. |
 | `BSC_RPC_URL` | Workflow `3 Collect Live Context` for BSC targets | Full HTTPS RPC URL as a plain string, `["https://rpc1","https://rpc2"]`, or `{"rpc_urls":["https://rpc1","https://rpc2"]}` |
+
+## Required Variables
+
+Create these under GitHub repository settings:
+
+`Settings -> Secrets and variables -> Actions -> Variables -> New repository variable`
+
+| Variable | Required for | Format |
+| --- | --- | --- |
+| `ACTE_TARGET_GITHUB_OWNER` | Workflow `5 Push To GitHub Account` | Exact GitHub login for the destination account that owns `ACTE_DEPLOY_TOKEN` |
 
 ## Optional Chain Secrets
 
@@ -63,7 +73,7 @@ For workflow `5 Push To GitHub Account`, use:
 
 | Input | Value |
 | --- | --- |
-| `expected_owner` | `Ms01Ar5uo0sXa59GnodsE81s0paiN` |
+| `expected_owner` | Destination GitHub login, or leave blank to use `ACTE_TARGET_GITHUB_OWNER` |
 | `repo_name` | The new target package repository name |
 | `private` | `true` or `false` |
 | `dry_run` | `true` first, then `false` after verification |
