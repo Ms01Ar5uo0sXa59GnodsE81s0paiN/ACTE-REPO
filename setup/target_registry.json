@@ -1,9 +1,9 @@
 {
-  "active_target": "bsc:0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+  "active_target": "bsc:0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
   "schema_version": "acte-target-registry-v1",
   "targets": [
     {
-      "active": true,
+      "active": false,
       "address": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
       "chain": "bsc",
       "chain_id": 56,
@@ -23,6 +23,35 @@
       "protocol": "Uniswap V4",
       "schema_version": "acte-target-v1",
       "target_type": "pool_manager",
+      "workflow": {
+        "0_intake_address": "complete",
+        "1_materialize_verified_foundry": "pending",
+        "2_verify_foundry_build": "pending",
+        "3_collect_live_context": "pending",
+        "5_push_to_github_account": "pending"
+      }
+    },
+    {
+      "active": true,
+      "address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "chain": "bsc",
+      "chain_id": 56,
+      "explorer_url": "https://bscscan.com/address/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "label": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "native_symbol": "BNB",
+      "paths": {
+        "audit_seed": "targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748/audit_seed.json",
+        "contract_graph": "targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748/contract_graph.json",
+        "deploy_manifest": "targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748/github_deploy.json",
+        "entrypoints": "targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748/entrypoints.json",
+        "foundry_dir": "foundry_targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+        "live_context": "targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748/live_context.json",
+        "source_response": "foundry_targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748/source-artifacts/source_response.json",
+        "target_dir": "targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748"
+      },
+      "protocol": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "schema_version": "acte-target-v1",
+      "target_type": "contract",
       "workflow": {
         "0_intake_address": "complete",
         "1_materialize_verified_foundry": "pending",

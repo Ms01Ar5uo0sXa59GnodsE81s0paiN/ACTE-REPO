@@ -1,0 +1,16 @@
+{
+  "address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+  "chain": "bsc",
+  "chain_id": 56,
+  "explorer_url": "https://bscscan.com/address/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+  "foundry_dir": "foundry_targets/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+  "label": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+  "required_gates": [
+    "verified source fetched",
+    "Foundry project builds",
+    "runtime identity checked against live deployment",
+    "live context captured at a concrete block",
+    "GitHub deploy owner verified from token"
+  ],
+  "schema_version": "acte-audit-seed-v1"
+}
