@@ -26,11 +26,10 @@ CHAINS: Dict[str, ChainConfig] = {
         chain_id=56,
         native_symbol="BNB",
         explorer_host="bscscan.com",
-        explorer_api_url="https://api.etherscan.io/v2/api",
+        explorer_api_url="https://api.bscscan.com/api",
         api_key_env="BSCSCAN_API_KEY",
         rpc_env="BSC_RPC_URL",
         public_rpc=("https://bsc-dataseed.binance.org", "https://bsc-rpc.publicnode.com"),
-        etherscan_v2_chain_id=56,
     ),
     "ethereum": ChainConfig(
         key="ethereum",
