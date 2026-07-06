@@ -1,0 +1,13 @@
+{
+  "address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "chain": "bsc",
+  "chain_id": 56,
+  "explorer_url": "https://bscscan.com/address/0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "implementation": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+  "implementation_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+  "input_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "live_context_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "proxy": true,
+  "proxy_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "source_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a"
+}
