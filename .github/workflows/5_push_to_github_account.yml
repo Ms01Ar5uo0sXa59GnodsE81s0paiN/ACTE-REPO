@@ -1,6 +1,11 @@
 name: 5 Push To GitHub Account
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/5_push_to_github_account.yml"
   workflow_dispatch:
     inputs:
       repo_name:
@@ -26,7 +31,14 @@ permissions:
   contents: write
 
 jobs:
+  index:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workflow indexed for manual runs."
+
   deploy:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     env:
       ACTE_DEPLOY_TOKEN: ${{ secrets.ACTE_DEPLOY_TOKEN }}

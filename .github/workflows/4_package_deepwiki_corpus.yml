@@ -1,13 +1,25 @@
 name: 4 Package DeepWiki Corpus
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/4_package_deepwiki_corpus.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+  index:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workflow indexed for manual runs."
+
   package:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -1,13 +1,25 @@
 name: 2 Verify Foundry Build
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/2_verify_foundry_build.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+  index:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workflow indexed for manual runs."
+
   verify:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

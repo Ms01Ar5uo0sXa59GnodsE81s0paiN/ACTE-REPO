@@ -1,13 +1,25 @@
 name: 1 Materialize Verified Foundry
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/1_materialize_verified_foundry.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+  index:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Workflow indexed for manual runs."
+
   materialize:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     env:
       BSCSCAN_API_KEY: ${{ secrets.BSCSCAN_API_KEY }}
