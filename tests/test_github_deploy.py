@@ -13,8 +13,13 @@ class FakeGitHubClient:
     def authenticated_login(self):
         return "alice"
 
-    def ensure_repo(self, repo_name, private):
+    def ensure_repo(self, owner, repo_name, private):
         raise AssertionError("dry run must not create repositories")
+
+
+class ExistingRepoGitHubClient(FakeGitHubClient):
+    def ensure_repo(self, owner, repo_name, private):
+        return {"full_name": f"{owner}/{repo_name}"}, False
 
 
 class GitHubDeployTests(unittest.TestCase):
@@ -57,6 +62,22 @@ class GitHubDeployTests(unittest.TestCase):
                     private=False,
                     dry_run=True,
                 )
+
+    def test_existing_repo_is_reused(self):
+        with tempfile.TemporaryDirectory() as tmp, patch("acte.github_deploy.GitHubClient", ExistingRepoGitHubClient), patch(
+            "acte.github_deploy.ensure_git_commit"
+        ), patch("acte.github_deploy.run_git"), patch("acte.github_deploy.set_clean_origin"):
+            manifest = deploy_package(
+                package_dir=Path(tmp),
+                repo_name="target-repo",
+                token="secret-token",
+                expected_owner="alice",
+                private=False,
+                dry_run=False,
+            )
+
+        self.assertFalse(manifest["created"])
+        self.assertTrue(manifest["pushed"])
 
 
 if __name__ == "__main__":

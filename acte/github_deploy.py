@@ -6,6 +6,7 @@ import os
 import subprocess
 import urllib.error
 import urllib.request
+from urllib.parse import quote
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -57,9 +58,16 @@ class GitHubClient:
             raise GitHubDeployError("could not resolve authenticated GitHub login")
         return login
 
-    def ensure_repo(self, repo_name: str, private: bool) -> Dict[str, Any]:
+    def ensure_repo(self, owner: str, repo_name: str, private: bool) -> tuple[Dict[str, Any], bool]:
+        owner_path = quote(owner, safe="")
+        repo_path = quote(repo_name, safe="")
+        try:
+            return self.request("GET", f"/repos/{owner_path}/{repo_path}"), False
+        except GitHubDeployError as exc:
+            if "HTTP 404" not in str(exc):
+                raise
         payload = {"name": repo_name, "private": private, "auto_init": False}
-        return self.request("POST", "/user/repos", payload)
+        return self.request("POST", "/user/repos", payload), True
 
 
 def run_git(args: list[str], cwd: Path) -> None:
@@ -129,12 +137,12 @@ def deploy_package(
         manifest["pushed"] = False
         return manifest
 
-    client.ensure_repo(repo_name, private=private)
+    _, created_repo = client.ensure_repo(owner, repo_name, private=private)
     ensure_git_commit(package_dir, branch)
     push_url = f"https://x-access-token:{token}@github.com/{owner}/{repo_name}.git"
     run_git(["git", "push", "--force", push_url, f"{branch}:{branch}"], package_dir)
     set_clean_origin(package_dir, remote_url)
-    manifest["created"] = True
+    manifest["created"] = created_repo
     manifest["pushed"] = True
     return manifest
 
