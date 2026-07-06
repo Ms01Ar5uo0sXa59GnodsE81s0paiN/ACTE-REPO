@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from acte.explorer import SourceRecord, source_bundle
-from acte.foundry import materialize_foundry_project
+from acte.foundry import foundry_toml, materialize_foundry_project
 from acte.intake import build_target_record
 
 
@@ -63,7 +63,18 @@ class FoundryTests(unittest.TestCase):
             finally:
                 os.chdir(old)
 
+    def test_foundry_toml_infers_package_remappings(self):
+        bundle = {
+            "settings": {},
+            "sources": {
+                "@openzeppelin/contracts/utils/Address.sol": "",
+                "contracts/Bridge.sol": "",
+            },
+        }
+        toml = foundry_toml(sample_record(), bundle)
+        self.assertIn('"@openzeppelin/contracts/=src/@openzeppelin/contracts/"', toml)
+        self.assertIn('"contracts/=src/contracts/"', toml)
+
 
 if __name__ == "__main__":
     unittest.main()
-

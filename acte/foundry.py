@@ -22,6 +22,20 @@ def bool_setting(value: Any) -> bool:
     return bool(value) and str(value).lower() not in {"false", "0", "none"}
 
 
+def inferred_remappings(sources: Dict[str, str]) -> list[str]:
+    remappings: set[str] = set()
+    for source_name in sources:
+        parts = safe_relative_path(source_name).parts
+        if not parts:
+            continue
+        if parts[0].startswith("@") and len(parts) >= 2:
+            prefix = "/".join(parts[:2])
+            remappings.add(f"{prefix}/=src/{prefix}/")
+        elif len(parts) >= 2:
+            remappings.add(f"{parts[0]}/=src/{parts[0]}/")
+    return sorted(remappings)
+
+
 def foundry_toml(record: SourceRecord, bundle: Dict[str, Any]) -> str:
     settings = bundle.get("settings") if isinstance(bundle.get("settings"), dict) else {}
     optimizer = settings.get("optimizer") if isinstance(settings.get("optimizer"), dict) else {}
@@ -29,7 +43,8 @@ def foundry_toml(record: SourceRecord, bundle: Dict[str, Any]) -> str:
     optimizer_runs = optimizer.get("runs", record.optimizer_runs or 200)
     evm_version = settings.get("evmVersion") or record.evm_version
     via_ir = settings.get("viaIR")
-    remappings = settings.get("remappings") if isinstance(settings.get("remappings"), list) else []
+    configured_remappings = settings.get("remappings") if isinstance(settings.get("remappings"), list) else []
+    remappings = list(dict.fromkeys([*configured_remappings, *inferred_remappings(bundle.get("sources", {}))]))
 
     lines = [
         "[profile.default]",
