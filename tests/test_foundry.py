@@ -41,6 +41,36 @@ def sample_record(
     )
 
 
+def root_layout_record() -> SourceRecord:
+    source_code = (
+        "{{"
+        '"language":"Solidity",'
+        '"sources":{'
+        '"src/Portal.sol":{"content":"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20; import {LibCurve} from \\"src/libraries/Curve.sol\\"; contract Portal { function x() external pure returns (uint256) { return LibCurve.x(); } }"},'
+        '"src/libraries/Curve.sol":{"content":"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20; library LibCurve { function x() internal pure returns (uint256) { return 1; } }"},'
+        '"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol":{"content":"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20; interface IERC20 {}"}'
+        "},"
+        '"settings":{"optimizer":{"enabled":true,"runs":99999},"evmVersion":"cancun"}'
+        "}}"
+    )
+    return SourceRecord(
+        chain="bsc",
+        address="0x0000000000000000000000000000000000001004",
+        verified=True,
+        contract_name="Portal",
+        compiler_version="v0.8.26+commit.8a97fa7a",
+        optimization_used=True,
+        optimizer_runs=99999,
+        evm_version="",
+        source_code=source_code,
+        abi="[]",
+        constructor_arguments="",
+        proxy=False,
+        implementation="",
+        raw={},
+    )
+
+
 class FoundryTests(unittest.TestCase):
     def test_source_bundle_handles_double_braced_standard_json(self):
         bundle = source_bundle(sample_record())
@@ -69,6 +99,53 @@ class FoundryTests(unittest.TestCase):
                 self.assertTrue((project / "source-artifacts/source_bundle.json").exists())
                 addresses = (project / "addresses.json").read_text(encoding="utf-8")
                 self.assertIn('"proxy": false', addresses)
+            finally:
+                os.chdir(old)
+
+    def test_materialize_repo_root_layout_does_not_duplicate_src_or_lib(self):
+        target = build_target_record(
+            target="0x0000000000000000000000000000000000001004",
+            chain="bsc",
+            label="Portal",
+            protocol="Portal",
+            target_type="contract",
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            os.chdir(tmp)
+            try:
+                project = materialize_foundry_project(target, root_layout_record())
+                self.assertTrue((project / "src/Portal.sol").exists())
+                self.assertTrue((project / "src/libraries/Curve.sol").exists())
+                self.assertTrue((project / "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol").exists())
+                self.assertFalse((project / "src/src/Portal.sol").exists())
+                self.assertFalse((project / "src/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol").exists())
+                toml = (project / "foundry.toml").read_text(encoding="utf-8")
+                self.assertNotIn('"src/=src/src/"', toml)
+                self.assertNotIn('"lib/=src/lib/"', toml)
+            finally:
+                os.chdir(old)
+
+    def test_rematerialize_cleans_stale_wrapped_sources(self):
+        target = build_target_record(
+            target="0x0000000000000000000000000000000000001004",
+            chain="bsc",
+            label="Portal",
+            protocol="Portal",
+            target_type="contract",
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            os.chdir(tmp)
+            try:
+                project = materialize_foundry_project(target, sample_record())
+                stale = project / "src/src/Portal.sol"
+                stale.parent.mkdir(parents=True, exist_ok=True)
+                stale.write_text("stale", encoding="utf-8")
+
+                project = materialize_foundry_project(target, root_layout_record())
+                self.assertTrue((project / "src/Portal.sol").exists())
+                self.assertFalse(stale.exists())
             finally:
                 os.chdir(old)
 

@@ -23,16 +23,26 @@ def bool_setting(value: Any) -> bool:
     return bool(value) and str(value).lower() not in {"false", "0", "none"}
 
 
-def inferred_remappings(sources: Dict[str, str]) -> list[str]:
+def uses_repo_root_layout(sources: Dict[str, str]) -> bool:
+    for source_name in sources:
+        parts = safe_relative_path(source_name).parts
+        if parts and parts[0] in {"src", "lib"}:
+            return True
+    return False
+
+
+def inferred_remappings(sources: Dict[str, str], *, repo_root_layout: bool = False) -> list[str]:
     remappings: set[str] = set()
     for source_name in sources:
         parts = safe_relative_path(source_name).parts
         if not parts:
             continue
+        if repo_root_layout and parts[0] in {"src", "lib"}:
+            continue
         if parts[0].startswith("@") and len(parts) >= 2:
             prefix = "/".join(parts[:2])
             remappings.add(f"{prefix}/=src/{prefix}/")
-        elif len(parts) >= 2:
+        elif not repo_root_layout and len(parts) >= 2:
             remappings.add(f"{parts[0]}/=src/{parts[0]}/")
     return sorted(remappings)
 
@@ -45,7 +55,9 @@ def foundry_toml(record: SourceRecord, bundle: Dict[str, Any]) -> str:
     evm_version = settings.get("evmVersion") or record.evm_version
     via_ir = settings.get("viaIR")
     configured_remappings = settings.get("remappings") if isinstance(settings.get("remappings"), list) else []
-    remappings = list(dict.fromkeys([*configured_remappings, *inferred_remappings(bundle.get("sources", {}))]))
+    sources = bundle.get("sources", {})
+    repo_root_layout = uses_repo_root_layout(sources)
+    remappings = list(dict.fromkeys([*configured_remappings, *inferred_remappings(sources, repo_root_layout=repo_root_layout)]))
 
     lines = [
         "[profile.default]",
@@ -68,18 +80,68 @@ def foundry_toml(record: SourceRecord, bundle: Dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def source_output_path(project_dir: Path, source_name: str) -> Path:
+def source_output_path(project_dir: Path, source_name: str, *, repo_root_layout: bool = False) -> Path:
     rel = safe_relative_path(source_name)
+    if repo_root_layout:
+        return project_dir / rel
     if rel.parts and rel.parts[0] == "lib":
         return project_dir / rel
     return project_dir / "src" / rel
 
 
 def write_sources(project_dir: Path, sources: Dict[str, str]) -> None:
+    repo_root_layout = uses_repo_root_layout(sources)
     for source_name, content in sources.items():
-        out = source_output_path(project_dir, source_name)
+        out = source_output_path(project_dir, source_name, repo_root_layout=repo_root_layout)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(content, encoding="utf-8")
+
+
+def _source_roots_from_bundle(project_dir: Path) -> set[Path]:
+    bundle_path = project_dir / "source-artifacts" / "source_bundle.json"
+    if not bundle_path.exists():
+        return set()
+    try:
+        payload = read_json(bundle_path)
+    except Exception:
+        return set()
+    raw_sources = payload.get("sources")
+    if not isinstance(raw_sources, list):
+        return set()
+
+    roots: set[Path] = set()
+    repo_root_layout = uses_repo_root_layout({str(source): "" for source in raw_sources})
+    for source_name in raw_sources:
+        if not isinstance(source_name, str):
+            continue
+        out = source_output_path(project_dir, source_name, repo_root_layout=repo_root_layout)
+        try:
+            root = out.relative_to(project_dir).parts[0]
+        except (IndexError, ValueError):
+            continue
+        if root not in {"source-artifacts", "test", "script", "aarc-audit"}:
+            roots.add(project_dir / root)
+    return roots
+
+
+def clean_generated_source_roots(project_dir: Path, sources: Dict[str, str]) -> None:
+    roots = _source_roots_from_bundle(project_dir)
+    repo_root_layout = uses_repo_root_layout(sources)
+    for source_name in sources:
+        out = source_output_path(project_dir, source_name, repo_root_layout=repo_root_layout)
+        try:
+            root = out.relative_to(project_dir).parts[0]
+        except (IndexError, ValueError):
+            continue
+        if root not in {"source-artifacts", "test", "script", "aarc-audit"}:
+            roots.add(project_dir / root)
+
+    for root in roots:
+        if root.exists():
+            if root.is_dir():
+                shutil.rmtree(root)
+            else:
+                root.unlink()
 
 
 def read_source_record_from_file(path: str | Path) -> SourceRecord:
@@ -248,6 +310,7 @@ def materialize_foundry_project(target: Dict[str, Any], source_record: SourceRec
         raise RuntimeError(f"source is not verified for {target['chain']}:{source_address}")
 
     bundle = source_bundle(source_record)
+    clean_generated_source_roots(project_dir, bundle["sources"])
     write_sources(project_dir, bundle["sources"])
     if bundle.get("standard_json"):
         write_json(source_artifacts / "metadata-standard-input.json", bundle["standard_json"])
