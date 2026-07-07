@@ -1,0 +1,790 @@
+{
+  "abi_inventory": {
+    "event_count": 18,
+    "events": [
+      "AddBlacklist(address)",
+      "ApprovedWithdrawal(uint256,address)",
+      "BotGasConfigUpdated(uint256,bytes32,uint256,address,address,address,uint32,bool)",
+      "CreatedWithdrawal(uint256,address,address,address,uint256)",
+      "DepositEvent(address,address,uint256,uint256,address,uint256,uint256)",
+      "EnvUpdated(address,address,address)",
+      "ExecuteEvent(address,address,uint256,address,uint256,uint256,bytes32,uint8,uint256,uint256)",
+      "ExecutedWithdrawal(uint256,address)",
+      "ExecutionConfirmed(uint256,address)",
+      "Initialized(uint64)",
+      "ReceivedEth(address,uint256)",
+      "Refunded(uint256,address,uint256,uint256,uint256)",
+      "RemoveBlacklist(address)",
+      "RoleAdminChanged(bytes32,bytes32,bytes32)",
+      "RoleGranted(bytes32,address,address)",
+      "RoleRevoked(bytes32,address,address)",
+      "SetTokenEvent(bytes32,uint8,address,bool,bool,bool)",
+      "VoteRefUpdated(address)"
+    ],
+    "function_count": 39,
+    "payable_functions": [
+      {
+        "input_count": 4,
+        "name": "deposit",
+        "output_count": 0,
+        "payable": true,
+        "signature": "deposit(uint256,bytes32,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 4,
+        "name": "depositWithBotGas",
+        "output_count": 0,
+        "payable": true,
+        "signature": "depositWithBotGas(uint256,bytes32,address,uint256)",
+        "state_mutability": "payable"
+      }
+    ],
+    "privileged_or_role_functions": [
+      {
+        "input_count": 0,
+        "name": "ADMIN_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "ADMIN_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "BRIDGE_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "BRIDGE_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "DEFAULT_ADMIN_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DEFAULT_ADMIN_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "FINANCE_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "FINANCE_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "RELAYER_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "RELAYER_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "adminAddBlacklist",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminAddBlacklist(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "adminRefund",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminRefund(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "adminRemoveBlacklist",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminRemoveBlacklist(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "adminSetBotGasConfig",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminSetBotGasConfig(tuple,bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "adminSetEnv",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminSetEnv(address,address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "adminSetVoteRef",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminSetVoteRef(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "getBridgePause",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getBridgePause()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "getRoleAdmin",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getRoleAdmin(bytes32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "getTokenPauseByResourceId",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getTokenPauseByResourceId(bytes32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 2,
+        "name": "grantRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "grantRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "hasRole",
+        "output_count": 1,
+        "payable": false,
+        "signature": "hasRole(bytes32,address)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "initialize",
+        "output_count": 0,
+        "payable": false,
+        "signature": "initialize()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "renounceRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "revokeRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "revokeRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      }
+    ],
+    "value_movement_functions": [
+      {
+        "input_count": 4,
+        "name": "deposit",
+        "output_count": 0,
+        "payable": true,
+        "signature": "deposit(uint256,bytes32,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "depositRecords",
+        "output_count": 6,
+        "payable": false,
+        "signature": "depositRecords(uint256)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 4,
+        "name": "depositWithBotGas",
+        "output_count": 0,
+        "payable": true,
+        "signature": "depositWithBotGas(uint256,bytes32,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 0,
+        "name": "getMinFee",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getMinFee()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "withdrawalApprove",
+        "output_count": 0,
+        "payable": false,
+        "signature": "withdrawalApprove(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "withdrawalCreate",
+        "output_count": 1,
+        "payable": false,
+        "signature": "withdrawalCreate(address,address,uint256)",
+        "state_mutability": "nonpayable"
+      }
+    ],
+    "write_function_count": 16,
+    "write_functions": [
+      {
+        "input_count": 1,
+        "name": "adminAddBlacklist",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminAddBlacklist(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "adminRefund",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminRefund(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "adminRemoveBlacklist",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminRemoveBlacklist(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "adminSetBotGasConfig",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminSetBotGasConfig(tuple,bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "adminSetEnv",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminSetEnv(address,address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "adminSetVoteRef",
+        "output_count": 0,
+        "payable": false,
+        "signature": "adminSetVoteRef(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 4,
+        "name": "deposit",
+        "output_count": 0,
+        "payable": true,
+        "signature": "deposit(uint256,bytes32,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 4,
+        "name": "depositWithBotGas",
+        "output_count": 0,
+        "payable": true,
+        "signature": "depositWithBotGas(uint256,bytes32,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 11,
+        "name": "execute",
+        "output_count": 0,
+        "payable": false,
+        "signature": "execute(bytes32,uint256,address,address,uint256,uint256,uint256,uint256,bytes32,uint8,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "grantRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "grantRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "initialize",
+        "output_count": 0,
+        "payable": false,
+        "signature": "initialize()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "markExecutionConfirmed",
+        "output_count": 0,
+        "payable": false,
+        "signature": "markExecutionConfirmed(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "renounceRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "revokeRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "revokeRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "withdrawalApprove",
+        "output_count": 0,
+        "payable": false,
+        "signature": "withdrawalApprove(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "withdrawalCreate",
+        "output_count": 1,
+        "payable": false,
+        "signature": "withdrawalCreate(address,address,uint256)",
+        "state_mutability": "nonpayable"
+      }
+    ]
+  },
+  "audit_notes": [
+    "Live balances, storage slots, and common view calls are captured from the proxy/live address when a proxy is present.",
+    "Private mappings and structs are not globally enumerable without known keys.",
+    "DeepWiki candidates must be checked against this block-specific live state before proof.",
+    "ABI inventory and event samples are bounded hints for prioritization; proof must use source-level tests or fork probes.",
+    "Parameterized view probes use event-derived keys and dependency addresses, so failures are hints rather than complete absence of state."
+  ],
+  "balances": {
+    "erc20": [
+      {
+        "decimals": 18,
+        "human_balance": "271979.242947058091847273",
+        "name": "Tether USD",
+        "raw_balance": "271979242947058091847273",
+        "symbol": "USDT",
+        "token": "0x55d398326f99059ff775485246999027b3197955",
+        "usd_value": "unknown"
+      }
+    ],
+    "native": {
+      "human": "0.004702",
+      "raw": "4702000000000000",
+      "symbol": "BNB"
+    }
+  },
+  "captured_at": "2026-07-07T10:41:42Z",
+  "chain": "bsc",
+  "chain_id": 56,
+  "common_views": {
+    "ADMIN_ROLE": "0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775",
+    "BRIDGE_ROLE": "0x52ba824bfabc2bcfcdf7f0edbb486ebb05e1836c90e78047efeb949990f72e5f",
+    "Bridge": "0x979572fa3e2a08919b19adcef9f55bd9e501ef7f",
+    "CROSS_CHAIN_EXT_BOT_GAS": 1,
+    "DEFAULT_ADMIN_ROLE": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "FINANCE_ROLE": "0x940d6b1946ff1d2b5a9f1909219c3c81a370804b5ba0f91ec0828c99a2e6a681",
+    "RELAYER_ROLE": "0xe2b7fb3b832174769106daebcfd6d1970523240dda11281102db9363b83b0dc4",
+    "admin": "",
+    "decimals": null,
+    "factory": "",
+    "getBotGasConfig": "0x00000000000000000000000000000000000000000000000000000000000002a5ac589789ed8c9d2c61f17b13369864b5f181e58eba230a6ee4ec4c3e7750cd1d000000000000000000000000000000000000000000000000016345785d8a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+    "getBridgePause": false,
+    "getMaxAmountUsd": 30150,
+    "getMinAmountUsd": 10,
+    "getMinFee": 1,
+    "localNonce": 78820,
+    "owner": "",
+    "serverAddress": "0x1f261a04bacd21f54f1e15f50ac9212728a654d5",
+    "token0": "",
+    "token1": "",
+    "totalSupply": null,
+    "voteRef": "0x247b167d6f35d491f366573906ef01955ddd8b25"
+  },
+  "deepwiki_audit_focus": [
+    "Prioritize proof of unauthorized value extraction, excess token allocation, excess claim/reward, stuck-fund recovery abuse, and invariant-breaking swaps or migrations.",
+    "Check each payable and value-movement function against balance deltas, reserve/circulating-supply accounting, delegatecall target selection, and min-output checks.",
+    "Check privileged functions separately for externally reachable role bypass or misconfigured live roles; admin-key compromise alone is not a valid critical path.",
+    "Live target holds native balance: 4702000000000000 wei BNB; every withdrawal/recovery/claim/swap path must reconcile against this custody.",
+    "Live target holds ERC20 balance: largest observed USDT 271979.242947058091847273; include token-drain and accounting-liability checks.",
+    "Payable entrypoints exist; test msg.value accounting, refund behavior, CREATE2/salt locking fees, and quote-token/native-token branch mismatches."
+  ],
+  "dependencies": [
+    {
+      "address": "0x6a39de7cb8bbaf62ce50a4bebda4253f13751333",
+      "name": "proxy_admin"
+    },
+    {
+      "address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "name": "proxy_implementation"
+    }
+  ],
+  "dependency_context": [
+    {
+      "address": "0x6a39de7cb8bbaf62ce50a4bebda4253f13751333",
+      "code_size_bytes": 1690,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "proxy_admin",
+      "native_balance_wei": 0
+    },
+    {
+      "address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "code_size_bytes": 18315,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "proxy_implementation",
+      "native_balance_wei": 0
+    }
+  ],
+  "event_activity": {
+    "RoleAdminChanged": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "RoleAdminChanged(bytes32,bytes32,bytes32)"
+    },
+    "RoleGranted": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "RoleGranted(bytes32,address,address)"
+    },
+    "RoleRevoked": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "RoleRevoked(bytes32,address,address)"
+    },
+    "SetTokenEvent": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "SetTokenEvent(bytes32,uint8,address,bool,bool,bool)"
+    }
+  },
+  "implementation": {
+    "address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "code_size_bytes": 18315,
+    "native_balance_wei": 0,
+    "provided": true,
+    "resolved_from_eip1967": false
+  },
+  "latest_block": 108581678,
+  "mapping_key_hints": {},
+  "parameterized_views": {
+    "blacklist": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x6a39de7cb8bbaf62ce50a4bebda4253f13751333"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "blacklist(address)"
+    },
+    "depositRecords": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": {
+            "amount": 0,
+            "destinationChainId": 0,
+            "fee": 0,
+            "recipient": "",
+            "sender": "",
+            "tokenAddress": ""
+          },
+          "raw_output": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": {
+            "amount": 1000000000000000000,
+            "destinationChainId": 677,
+            "fee": 0,
+            "recipient": "0x0bc037b611b0d064b5c6d79018a6ec8aaf314ee8",
+            "sender": "0x0bc037b611b0d064b5c6d79018a6ec8aaf314ee8",
+            "tokenAddress": "0x55d398326f99059ff775485246999027b3197955"
+          },
+          "raw_output": "0x00000000000000000000000055d398326f99059ff775485246999027b31979550000000000000000000000000bc037b611b0d064b5c6d79018a6ec8aaf314ee80000000000000000000000000bc037b611b0d064b5c6d79018a6ec8aaf314ee80000000000000000000000000000000000000000000000000de0b6b3a7640000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002a5"
+        }
+      ],
+      "signature": "depositRecords(uint256)"
+    },
+    "executionConfirmed": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "executionConfirmed(uint256)"
+    },
+    "getRoleAdmin": {
+      "inputs": [
+        {
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "sample_count": 1,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "decoded_output": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getRoleAdmin(bytes32)"
+    },
+    "getTokenPauseByResourceId": {
+      "inputs": [
+        {
+          "name": "resourceId",
+          "type": "bytes32"
+        }
+      ],
+      "sample_count": 1,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getTokenPauseByResourceId(bytes32)"
+    },
+    "hasRole": {
+      "inputs": [
+        {
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x6a39de7cb8bbaf62ce50a4bebda4253f13751333"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "hasRole(bytes32,address)"
+    },
+    "refundDatas": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": {
+            "assetsType": 0,
+            "depositIsLock": false,
+            "depositReceiveAmount": 0,
+            "fee": 0,
+            "originAmount": 0,
+            "refunded": false,
+            "sender": "",
+            "tokenAddress": ""
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": {
+            "assetsType": 0,
+            "depositIsLock": false,
+            "depositReceiveAmount": 0,
+            "fee": 0,
+            "originAmount": 0,
+            "refunded": false,
+            "sender": "",
+            "tokenAddress": ""
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "refundDatas(uint256)"
+    },
+    "supportsInterface": {
+      "inputs": [
+        {
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "sample_count": 1,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "supportsInterface(bytes4)"
+    }
+  },
+  "proxy_slots": {
+    "admin": "0x6a39de7cb8bbaf62ce50a4bebda4253f13751333",
+    "admin_raw": "0x0000000000000000000000006a39de7cb8bbaf62ce50a4bebda4253f13751333",
+    "beacon": "",
+    "beacon_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "implementation": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "implementation_raw": "0x0000000000000000000000001d85a38d4a3ea8a6ae74f185a1df267704e7a748"
+  },
+  "rpc_endpoint_used": "https://rpc.ankr.com/bsc/1e369e330339301de50a0f3583179c4e28b0c68f5ce0da98bce061a35ea2df4c",
+  "schema_version": "acte-live-context-v3",
+  "source_identity": {
+    "build": {
+      "build_passed": true,
+      "command": "forge build",
+      "project_dir": "foundry_targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "returncode": 0,
+      "schema_version": "acte-foundry-build-verification-v1",
+      "stderr_tail": "warning[unsafe-typecast]: typecasts that can truncate values should be checked\n   \u256d\u25b8 src/@openzeppelin/contracts/utils/math/SignedMath.sol:31:28\n   \u2502\n31 \u2502         return x + (int256(uint256(x) >> 255) & (a ^ b));\n   \u2502                            \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n   \u2502\n   \u251c note: consider disabling this lint if you're certain the cast is safe\n   \u2502       \n   \u2502       // casting to 'uint256' is safe because [explain why]\n   \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n   \u2502       \n   \u2502       \n   \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[incorrect-shift]: the order of args in a shift operation is incorrect\n    \u256d\u25b8 src/@openzeppelin/contracts/utils/math/Math.sol:236:26\n    \u2502\n236 \u2502         uint256 result = 1 << (log2(a) >> 1);\n    \u2502                          \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#incorrect-shift\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n    \u256d\u25b8 src/contracts/BotBridge.sol:540:13\n    \u2502\n540 \u2502             uint128(botGasAmountSnapshot),\n    \u2502             \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint128' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[incorrect-shift]: the order of args in a shift operation is incorrect\n    \u256d\u25b8 src/@openzeppelin/contracts/utils/math/Math.sol:313:60\n    \u2502\n313 \u2502             return result + (unsignedRoundsUp(rounding) && 1 << result < value ? 1 : 0);\n    \u2502                                                            \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#incorrect-shift\n\nwarning[incorrect-shift]: the order of args in a shift operation is incorrect\n    \u256d\u25b8 src/@openzeppelin/contracts/utils/math/Math.sol:405:60\n    \u2502\n405 \u2502             return result + (unsignedRoundsUp(rounding) && 1 << (result << 3) < value ? 1 : 0);\n    \u2502                                                            \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#incorrect-shift\n\n",
+      "stdout_tail": "Compiling 29 files with Solc 0.8.22\nSolc 0.8.22 finished in 1.29s\nCompiler run successful!\n"
+    },
+    "compiler_version": "v0.8.22+commit.4fc1097e",
+    "contract_name": "BotBridge",
+    "source_address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "source_files": [],
+    "verified": true
+  },
+  "target": {
+    "address": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+    "code_size_bytes": 2227,
+    "deployment_kind": "proxy",
+    "explorer_url": "https://bscscan.com/address/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+    "implementation_address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+    "input_address": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+    "label": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+    "native_balance_wei": 4702000000000000,
+    "native_symbol": "BNB",
+    "proxy_address": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+    "source_address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748"
+  },
+  "view_errors": {}
+}
