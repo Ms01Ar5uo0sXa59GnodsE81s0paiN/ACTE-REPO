@@ -1,5 +1,5 @@
 {
-  "active_target": "bsc:0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "active_target": "bsc:0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
   "schema_version": "acte-target-registry-v1",
   "targets": [
     {
@@ -61,7 +61,7 @@
       }
     },
     {
-      "active": true,
+      "active": false,
       "address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
       "chain": "bsc",
       "chain_id": 56,
@@ -85,6 +85,40 @@
       "proxy_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
       "schema_version": "acte-target-v1",
       "source_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+      "target_type": "contract",
+      "workflow": {
+        "0_intake_address": "complete",
+        "1_materialize_verified_foundry": "pending",
+        "2_verify_foundry_build": "pending",
+        "3_collect_live_context": "pending",
+        "5_push_to_github_account": "pending"
+      }
+    },
+    {
+      "active": true,
+      "address": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "chain": "bsc",
+      "chain_id": 56,
+      "deployment_kind": "proxy",
+      "explorer_url": "https://bscscan.com/address/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "implementation_address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
+      "input_address": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "label": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "native_symbol": "BNB",
+      "paths": {
+        "audit_seed": "targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55/audit_seed.json",
+        "contract_graph": "targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55/contract_graph.json",
+        "deploy_manifest": "targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55/github_deploy.json",
+        "entrypoints": "targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55/entrypoints.json",
+        "foundry_dir": "foundry_targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+        "live_context": "targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55/live_context.json",
+        "source_response": "foundry_targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55/source-artifacts/source_response.json",
+        "target_dir": "targets/bsc/0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55"
+      },
+      "protocol": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "proxy_address": "0x3cd6fb6b0cddd3610f0f4769aa7bb686cd4a4b55",
+      "schema_version": "acte-target-v1",
+      "source_address": "0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
       "target_type": "contract",
       "workflow": {
         "0_intake_address": "complete",
