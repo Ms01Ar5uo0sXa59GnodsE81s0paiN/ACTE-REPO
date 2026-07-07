@@ -1,20 +1,1265 @@
 {
+  "abi_inventory": {
+    "event_count": 47,
+    "events": [
+      "BeneficiaryChanged(address,address,address)",
+      "BeneficiaryClaimed(address,address,uint256,uint256)",
+      "BitFlagsChanged(uint256,uint256)",
+      "CheckedIn(address)",
+      "DividendEmergencyWithdrawn(address,address,uint256,address)",
+      "ExtensionRegistered(bytes32,address,uint8)",
+      "FeeExemptionUpdated(address,bool)",
+      "FlapSaltLocked(address,bytes32,address,uint8,uint256)",
+      "FlapSaltUsed(address,bytes32,address,uint8,uint256)",
+      "FlapTokenAsymmetricTaxSet(address,uint256,uint256)",
+      "FlapTokenCLPoolCreated(address,bytes32,uint160)",
+      "FlapTokenCirculatingSupplyChanged(address,uint256)",
+      "FlapTokenProgressChanged(address,uint256)",
+      "FlapTokenStaged(uint256,address,address)",
+      "FlapTokenTaxSet(address,uint256)",
+      "Initialized(uint8)",
+      "LaunchedToDEX(address,address,uint256,uint256)",
+      "MarketWalletChanged(address,address,address)",
+      "MsgSent(address,address,string)",
+      "QuoteTokenConfigurationSet(address,tuple)",
+      "RateLimited(address,uint256)",
+      "RoleAdminChanged(bytes32,bytes32,bytes32)",
+      "RoleGranted(bytes32,address,address)",
+      "RoleRevoked(bytes32,address,address)",
+      "SpammerBlockedStatusChanged(address,bool)",
+      "StuckTaxTokenBurned(address,uint256)",
+      "StuckTaxTokenRecovered(address,uint256,uint256)",
+      "TaxOnBondingCurvePaid(address,uint256)",
+      "TaxTokenAddressesUpdated(address,address,address)",
+      "TaxV2OnBondingCurvePaid(address,uint256)",
+      "TokenBought(uint256,address,address,uint256,uint256,uint256,uint256)",
+      "TokenCreated(uint256,address,uint256,address,string,string,string)",
+      "TokenCurveSet(address,address,uint256)",
+      "TokenCurveSetV2(address,uint256,uint256,uint256)",
+      "TokenDexPreferenceSet(address,uint8,uint8)",
+      "TokenDexSupplyThreshSet(address,uint256)",
+      "TokenDividendTokenUpdated(address,address,address)",
+      "TokenExtensionEnabled(address,bytes32,address,uint8)",
+      "TokenMigratorSet(address,uint8)",
+      "TokenPoolInfoUpdated(address,tuple)",
+      "TokenQuoteSet(address,address)",
+      "TokenRedeemed(uint256,address,address,uint256,uint256,address)",
+      "TokenSold(uint256,address,address,uint256,uint256,uint256,uint256)",
+      "TokenVersionSet(address,uint8)",
+      "V3FavoredFeeSet(address,uint24)",
+      "V4LPFeesCollected(address,uint256,uint256)",
+      "VanityTokenCreated(address,address,address)"
+    ],
+    "function_count": 81,
+    "payable_functions": [
+      {
+        "input_count": 3,
+        "name": "buy",
+        "output_count": 1,
+        "payable": true,
+        "signature": "buy(address,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 3,
+        "name": "buyOnCreation",
+        "output_count": 1,
+        "payable": true,
+        "signature": "buyOnCreation(address,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "commitNewTokenV5",
+        "output_count": 0,
+        "payable": true,
+        "signature": "commitNewTokenV5(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 2,
+        "name": "lockSalt",
+        "output_count": 0,
+        "payable": true,
+        "signature": "lockSalt(bytes32,uint8)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV2",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV2(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV3",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV3(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV4",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV4(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV5",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV5(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV6",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV6(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV7",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV7(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapExactInput",
+        "output_count": 1,
+        "payable": true,
+        "signature": "swapExactInput(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapExactInputV3",
+        "output_count": 1,
+        "payable": true,
+        "signature": "swapExactInputV3(tuple)",
+        "state_mutability": "payable"
+      }
+    ],
+    "privileged_or_role_functions": [
+      {
+        "input_count": 0,
+        "name": "DEFAULT_ADMIN_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DEFAULT_ADMIN_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "GUARDIAN_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "GUARDIAN_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "MODERATOR_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "MODERATOR_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "TAX_GUARDIAN_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "TAX_GUARDIAN_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "TAX_MANAGER_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "TAX_MANAGER_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "TOKEN_FLAP_FEE_SETTER_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "TOKEN_FLAP_FEE_SETTER_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "burnStuckTaxToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "burnStuckTaxToken(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "changeMarketWallet",
+        "output_count": 0,
+        "payable": false,
+        "signature": "changeMarketWallet(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "enableTaxOnBondingCurve",
+        "output_count": 1,
+        "payable": false,
+        "signature": "enableTaxOnBondingCurve()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 2,
+        "name": "excludeAddressFromDividends",
+        "output_count": 0,
+        "payable": false,
+        "signature": "excludeAddressFromDividends(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "getRoleAdmin",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getRoleAdmin(bytes32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 2,
+        "name": "grantRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "grantRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "halt",
+        "output_count": 0,
+        "payable": false,
+        "signature": "halt()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "haltNewTokenV7",
+        "output_count": 0,
+        "payable": false,
+        "signature": "haltNewTokenV7()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "hasRole",
+        "output_count": 1,
+        "payable": false,
+        "signature": "hasRole(bytes32,address)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "initialize",
+        "output_count": 0,
+        "payable": false,
+        "signature": "initialize(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "isSpammerBlocked",
+        "output_count": 1,
+        "payable": false,
+        "signature": "isSpammerBlocked(address)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "recoverStuckDividend",
+        "output_count": 0,
+        "payable": false,
+        "signature": "recoverStuckDividend(tuple[])",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "recoverStuckTaxToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "recoverStuckTaxToken(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "registerExtension",
+        "output_count": 0,
+        "payable": false,
+        "signature": "registerExtension(bytes32,address,uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "renounceRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "revokeRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "revokeRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setBitFlags",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setBitFlags(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setFeeExemption",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setFeeExemption(address[],bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setFlapFeeProfile",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setFlapFeeProfile(address,uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setQuoteTokenConfiguration",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setQuoteTokenConfiguration(address,tuple)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setSpammerBlockedBatch",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSpammerBlockedBatch(address[],bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setTokenBeneficiary",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setTokenBeneficiary(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setTokenDividendToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setTokenDividendToken(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "updateTaxTokenAddresses",
+        "output_count": 0,
+        "payable": false,
+        "signature": "updateTaxTokenAddresses(tuple[])",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "updateTokenPoolInfo",
+        "output_count": 0,
+        "payable": false,
+        "signature": "updateTokenPoolInfo(address,tuple)",
+        "state_mutability": "nonpayable"
+      }
+    ],
+    "value_movement_functions": [
+      {
+        "input_count": 0,
+        "name": "DEFAULT_PCS_INFINITY_NORMAL_FEE_PIPS",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DEFAULT_PCS_INFINITY_NORMAL_FEE_PIPS()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "DEFAULT_V4_NORMAL_FEE_PIPS",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DEFAULT_V4_NORMAL_FEE_PIPS()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "SALT_LOCK_FEE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "SALT_LOCK_FEE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "TOKEN_FLAP_FEE_SETTER_ROLE",
+        "output_count": 1,
+        "payable": false,
+        "signature": "TOKEN_FLAP_FEE_SETTER_ROLE()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 3,
+        "name": "addV4LPLiquidity",
+        "output_count": 2,
+        "payable": false,
+        "signature": "addV4LPLiquidity(address,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "burnStuckTaxToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "burnStuckTaxToken(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "buy",
+        "output_count": 1,
+        "payable": true,
+        "signature": "buy(address,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 3,
+        "name": "buyOnCreation",
+        "output_count": 1,
+        "payable": true,
+        "signature": "buyOnCreation(address,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "claim",
+        "output_count": 2,
+        "payable": false,
+        "signature": "claim(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "collectV4Fees",
+        "output_count": 0,
+        "payable": false,
+        "signature": "collectV4Fees(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "commitNewTokenV5",
+        "output_count": 0,
+        "payable": true,
+        "signature": "commitNewTokenV5(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "delegateClaim",
+        "output_count": 2,
+        "payable": false,
+        "signature": "delegateClaim(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "getFeeRate",
+        "output_count": 2,
+        "payable": false,
+        "signature": "getFeeRate()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 4,
+        "name": "getLockedSaltsByUserAndVersion",
+        "output_count": 3,
+        "payable": false,
+        "signature": "getLockedSaltsByUserAndVersion(address,uint8,uint256,uint256)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 2,
+        "name": "getLockedSaltsCountByUserAndVersion",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getLockedSaltsCountByUserAndVersion(address,uint8)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "getLocks",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getLocks(address)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "getSaltLock",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getSaltLock(bytes32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "haltNewTokenV7",
+        "output_count": 0,
+        "payable": false,
+        "signature": "haltNewTokenV7()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "isSpammerBlocked",
+        "output_count": 1,
+        "payable": false,
+        "signature": "isSpammerBlocked(address)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 2,
+        "name": "lockSalt",
+        "output_count": 0,
+        "payable": true,
+        "signature": "lockSalt(bytes32,uint8)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV2",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV2(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV3",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV3(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV4",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV4(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV5",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV5(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV6",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV6(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV7",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV7(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 2,
+        "name": "previewBuy",
+        "output_count": 1,
+        "payable": false,
+        "signature": "previewBuy(address,uint256)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 3,
+        "name": "previewRedeem",
+        "output_count": 1,
+        "payable": false,
+        "signature": "previewRedeem(address,address,uint256)",
+        "state_mutability": "pure"
+      },
+      {
+        "input_count": 2,
+        "name": "previewSell",
+        "output_count": 1,
+        "payable": false,
+        "signature": "previewSell(address,uint256)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "recoverStuckDividend",
+        "output_count": 0,
+        "payable": false,
+        "signature": "recoverStuckDividend(tuple[])",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "recoverStuckTaxToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "recoverStuckTaxToken(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "redeem",
+        "output_count": 1,
+        "payable": false,
+        "signature": "redeem(address,address,uint256)",
+        "state_mutability": "pure"
+      },
+      {
+        "input_count": 3,
+        "name": "sell",
+        "output_count": 1,
+        "payable": false,
+        "signature": "sell(address,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setFeeExemption",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setFeeExemption(address[],bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setFlapFeeProfile",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setFlapFeeProfile(address,uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setSpammerBlockedBatch",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSpammerBlockedBatch(address[],bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "stageNewTokenV5",
+        "output_count": 1,
+        "payable": false,
+        "signature": "stageNewTokenV5(tuple)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapExactInput",
+        "output_count": 1,
+        "payable": true,
+        "signature": "swapExactInput(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapExactInputV3",
+        "output_count": 1,
+        "payable": true,
+        "signature": "swapExactInputV3(tuple)",
+        "state_mutability": "payable"
+      }
+    ],
+    "write_function_count": 44,
+    "write_functions": [
+      {
+        "input_count": 3,
+        "name": "addV4LPLiquidity",
+        "output_count": 2,
+        "payable": false,
+        "signature": "addV4LPLiquidity(address,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "auditorRunIdempotent",
+        "output_count": 0,
+        "payable": false,
+        "signature": "auditorRunIdempotent()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "burnStuckTaxToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "burnStuckTaxToken(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "buy",
+        "output_count": 1,
+        "payable": true,
+        "signature": "buy(address,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 3,
+        "name": "buyOnCreation",
+        "output_count": 1,
+        "payable": true,
+        "signature": "buyOnCreation(address,address,uint256)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 2,
+        "name": "changeMarketWallet",
+        "output_count": 0,
+        "payable": false,
+        "signature": "changeMarketWallet(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "claim",
+        "output_count": 2,
+        "payable": false,
+        "signature": "claim(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "collectV4Fees",
+        "output_count": 0,
+        "payable": false,
+        "signature": "collectV4Fees(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "commitNewTokenV5",
+        "output_count": 0,
+        "payable": true,
+        "signature": "commitNewTokenV5(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "delegateClaim",
+        "output_count": 2,
+        "payable": false,
+        "signature": "delegateClaim(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "excludeAddressFromDividends",
+        "output_count": 0,
+        "payable": false,
+        "signature": "excludeAddressFromDividends(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "grantRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "grantRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "halt",
+        "output_count": 0,
+        "payable": false,
+        "signature": "halt()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "haltNewTokenV7",
+        "output_count": 0,
+        "payable": false,
+        "signature": "haltNewTokenV7()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "initialize",
+        "output_count": 0,
+        "payable": false,
+        "signature": "initialize(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "inspect",
+        "output_count": 1,
+        "payable": false,
+        "signature": "inspect(bytes)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "lockSalt",
+        "output_count": 0,
+        "payable": true,
+        "signature": "lockSalt(bytes32,uint8)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV2",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV2(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV3",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV3(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV4",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV4(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV5",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV5(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV6",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV6(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "newTokenV7",
+        "output_count": 1,
+        "payable": true,
+        "signature": "newTokenV7(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "quoteExactInput",
+        "output_count": 1,
+        "payable": false,
+        "signature": "quoteExactInput(tuple)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "recoverStuckDividend",
+        "output_count": 0,
+        "payable": false,
+        "signature": "recoverStuckDividend(tuple[])",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "recoverStuckTaxToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "recoverStuckTaxToken(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "registerExtension",
+        "output_count": 0,
+        "payable": false,
+        "signature": "registerExtension(bytes32,address,uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "renounceRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "revokeRole",
+        "output_count": 0,
+        "payable": false,
+        "signature": "revokeRole(bytes32,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "rollv2",
+        "output_count": 0,
+        "payable": false,
+        "signature": "rollv2(bytes)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "sell",
+        "output_count": 1,
+        "payable": false,
+        "signature": "sell(address,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "sendMsg",
+        "output_count": 0,
+        "payable": false,
+        "signature": "sendMsg(address,string)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setBitFlags",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setBitFlags(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setFeeExemption",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setFeeExemption(address[],bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setFlapFeeProfile",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setFlapFeeProfile(address,uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setQuoteTokenConfiguration",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setQuoteTokenConfiguration(address,tuple)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setSpammerBlockedBatch",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSpammerBlockedBatch(address[],bool)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setTokenBeneficiary",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setTokenBeneficiary(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setTokenDividendToken",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setTokenDividendToken(address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "stageNewTokenV5",
+        "output_count": 1,
+        "payable": false,
+        "signature": "stageNewTokenV5(tuple)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapExactInput",
+        "output_count": 1,
+        "payable": true,
+        "signature": "swapExactInput(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapExactInputV3",
+        "output_count": 1,
+        "payable": true,
+        "signature": "swapExactInputV3(tuple)",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "updateTaxTokenAddresses",
+        "output_count": 0,
+        "payable": false,
+        "signature": "updateTaxTokenAddresses(tuple[])",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "updateTokenPoolInfo",
+        "output_count": 0,
+        "payable": false,
+        "signature": "updateTokenPoolInfo(address,tuple)",
+        "state_mutability": "nonpayable"
+      }
+    ]
+  },
   "audit_notes": [
     "Live balances, storage slots, and common view calls are captured from the proxy/live address when a proxy is present.",
     "Private mappings and structs are not globally enumerable without known keys.",
-    "DeepWiki candidates must be checked against this block-specific live state before proof."
+    "DeepWiki candidates must be checked against this block-specific live state before proof.",
+    "ABI inventory and event samples are bounded hints for prioritization; proof must use source-level tests or fork probes.",
+    "Parameterized view probes use event-derived keys and dependency addresses, so failures are hints rather than complete absence of state."
   ],
-  "captured_at": "2026-07-06T09:44:02Z",
+  "balances": {
+    "erc20": [
+      {
+        "decimals": 18,
+        "human_balance": "11634.902253851864663941",
+        "name": "Tether USD",
+        "raw_balance": "11634902253851864663941",
+        "symbol": "USDT",
+        "token": "0x55d398326f99059ff775485246999027b3197955",
+        "usd_value": "unknown"
+      },
+      {
+        "decimals": 18,
+        "human_balance": "0.0000001",
+        "name": "Wrapped BNB",
+        "raw_balance": "100000000000",
+        "symbol": "WBNB",
+        "token": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "usd_value": "unknown"
+      }
+    ],
+    "native": {
+      "human": "1345.838606521179216905",
+      "raw": "1345838606521179216905",
+      "symbol": "BNB"
+    }
+  },
+  "captured_at": "2026-07-06T13:57:15Z",
   "chain": "bsc",
   "chain_id": 56,
   "common_views": {
+    "DEFAULT_ADMIN_ROLE": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "DEFAULT_PCS_INFINITY_NORMAL_FEE_PIPS": 8534,
+    "DEFAULT_V4_NORMAL_FEE_PIPS": 12500,
+    "DEFAULT_V4_TICK_SPACING": 250,
+    "GUARDIAN_ROLE": "0x55435dd261a4b9b3364963f7738a7a662ad9c84396d64be3365284bb7f0a5041",
+    "MODERATOR_ROLE": "0x71f3d55856e4058ed06ee057d79ada615f65cdf5f9ee88181b914225088f834f",
+    "SALT_LOCK_FEE": 10000000000000000,
+    "TAX_GUARDIAN_ROLE": "0x39c7391450da8e558aa4ef03f9527f7843889b75c868a2096a2e72733333e643",
+    "TAX_MANAGER_ROLE": "0x30f4f48440c1ad721c73a3b5549aa3db7105f00012df64020e3a66b689c0e70b",
+    "TOKEN_FLAP_FEE_SETTER_ROLE": "0xfd80616bbbf4531d5e991bc3cdb7a409f80d9d5c1d2eadd276bd7c02087903f4",
+    "VAULT_PORTAL": "0x90497450f2a706f1951b5bdda52b4e5d16f34c06",
     "admin": "",
     "decimals": null,
+    "enableTaxOnBondingCurve": true,
     "factory": "",
+    "getFeeRate": "0x00000000000000000000000000000000000000000000000000000000000000640000000000000000000000000000000000000000000000000000000000000064",
+    "nonce": 1359454,
     "owner": "",
     "token0": "",
     "token1": "",
-    "totalSupply": null
+    "totalSupply": null,
+    "version": "v5.14.15"
+  },
+  "deepwiki_audit_focus": [
+    "Prioritize proof of unauthorized value extraction, excess token allocation, excess claim/reward, stuck-fund recovery abuse, and invariant-breaking swaps or migrations.",
+    "Check each payable and value-movement function against balance deltas, reserve/circulating-supply accounting, delegatecall target selection, and min-output checks.",
+    "Check privileged functions separately for externally reachable role bypass or misconfigured live roles; admin-key compromise alone is not a valid critical path.",
+    "Live target holds native balance: 1345838606521179216905 wei BNB; every withdrawal/recovery/claim/swap path must reconcile against this custody.",
+    "Live target holds ERC20 balance: largest observed USDT 11634.902253851864663941; include token-drain and accounting-liability checks.",
+    "Payable entrypoints exist; test msg.value accounting, refund behavior, CREATE2/salt locking fees, and quote-token/native-token branch mismatches."
+  ],
+  "dependencies": [
+    {
+      "address": "0x90497450f2a706f1951b5bdda52b4e5d16f34c06",
+      "name": "VAULT_PORTAL"
+    },
+    {
+      "address": "0xb2480c2d17bf4510701c4def374de6d22e039bd4",
+      "name": "proxy_admin"
+    },
+    {
+      "address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+      "name": "proxy_implementation"
+    }
+  ],
+  "dependency_context": [
+    {
+      "address": "0x90497450f2a706f1951b5bdda52b4e5d16f34c06",
+      "code_size_bytes": 2882,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "VAULT_PORTAL",
+      "native_balance_wei": 0
+    },
+    {
+      "address": "0xb2480c2d17bf4510701c4def374de6d22e039bd4",
+      "code_size_bytes": 2150,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "proxy_admin",
+      "native_balance_wei": 0
+    },
+    {
+      "address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+      "code_size_bytes": 18392,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "proxy_implementation",
+      "native_balance_wei": 0
+    }
+  ],
+  "event_activity": {
+    "BeneficiaryClaimed": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "BeneficiaryClaimed(address,address,uint256,uint256)"
+    },
+    "FeeExemptionUpdated": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FeeExemptionUpdated(address,bool)"
+    },
+    "FlapSaltLocked": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapSaltLocked(address,bytes32,address,uint8,uint256)"
+    },
+    "FlapTokenAsymmetricTaxSet": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapTokenAsymmetricTaxSet(address,uint256,uint256)"
+    },
+    "FlapTokenCLPoolCreated": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapTokenCLPoolCreated(address,bytes32,uint160)"
+    },
+    "FlapTokenCirculatingSupplyChanged": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapTokenCirculatingSupplyChanged(address,uint256)"
+    },
+    "FlapTokenProgressChanged": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapTokenProgressChanged(address,uint256)"
+    },
+    "FlapTokenStaged": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapTokenStaged(uint256,address,address)"
+    },
+    "FlapTokenTaxSet": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "FlapTokenTaxSet(address,uint256)"
+    },
+    "LaunchedToDEX": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "LaunchedToDEX(address,address,uint256,uint256)"
+    },
+    "QuoteTokenConfigurationSet": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "QuoteTokenConfigurationSet(address,tuple)"
+    },
+    "RoleAdminChanged": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "RoleAdminChanged(bytes32,bytes32,bytes32)"
+    }
   },
   "implementation": {
     "address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
@@ -23,7 +1268,246 @@
     "provided": true,
     "resolved_from_eip1967": false
   },
-  "latest_block": 108382650,
+  "latest_block": 108415678,
+  "mapping_key_hints": {},
+  "parameterized_views": {
+    "getLockedSaltsCountByUserAndVersion": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+            0
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+            1
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x90497450f2a706f1951b5bdda52b4e5d16f34c06",
+            0
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getLockedSaltsCountByUserAndVersion(address,uint8)"
+    },
+    "getLocks": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0"
+          ],
+          "decoded_output": 32,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x90497450f2a706f1951b5bdda52b4e5d16f34c06"
+          ],
+          "decoded_output": 32,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0xb2480c2d17bf4510701c4def374de6d22e039bd4"
+          ],
+          "decoded_output": 32,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getLocks(address)"
+    },
+    "getQuoteTokenConfiguration": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0"
+          ],
+          "decoded_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x90497450f2a706f1951b5bdda52b4e5d16f34c06"
+          ],
+          "decoded_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0xb2480c2d17bf4510701c4def374de6d22e039bd4"
+          ],
+          "decoded_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getQuoteTokenConfiguration(address)"
+    },
+    "getRoleAdmin": {
+      "inputs": [
+        {
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "sample_count": 1,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "decoded_output": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getRoleAdmin(bytes32)"
+    },
+    "getSaltLock": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "sample_count": 1,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "decoded_output": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "raw_output": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getSaltLock(bytes32)"
+    },
+    "hasRole": {
+      "inputs": [
+        {
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x90497450f2a706f1951b5bdda52b4e5d16f34c06"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0xb2480c2d17bf4510701c4def374de6d22e039bd4"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "hasRole(bytes32,address)"
+    },
+    "isSpammerBlocked": {
+      "inputs": [
+        {
+          "name": "spammer",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0x90497450f2a706f1951b5bdda52b4e5d16f34c06"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0xb2480c2d17bf4510701c4def374de6d22e039bd4"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "isSpammerBlocked(address)"
+    },
+    "supportsInterface": {
+      "inputs": [
+        {
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "sample_count": 1,
+      "samples": [
+        {
+          "args": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "supportsInterface(bytes4)"
+    }
+  },
   "proxy_slots": {
     "admin": "0xb2480c2d17bf4510701c4def374de6d22e039bd4",
     "admin_raw": "0x000000000000000000000000b2480c2d17bf4510701c4def374de6d22e039bd4",
@@ -32,8 +1516,24 @@
     "implementation": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
     "implementation_raw": "0x000000000000000000000000eb6c62d1885c421797d0c494e693c90d4b54125a"
   },
-  "rpc_endpoint_used": "https://rpc.ankr.com/bsc/1e369e330339301de50a0f3583179c4e28b0c68f5ce0da98bce061a35ea2df4c",
-  "schema_version": "acte-live-context-v1",
+  "rpc_endpoint_used": "https://bsc-dataseed.binance.org",
+  "schema_version": "acte-live-context-v3",
+  "source_identity": {
+    "build": {
+      "build_passed": true,
+      "command": "forge build",
+      "project_dir": "foundry_targets/bsc/0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+      "returncode": 0,
+      "schema_version": "acte-foundry-build-verification-v1",
+      "stderr_tail": "Base.sol:904:51\n    \u2502\n904 \u2502                 state.quoteTokenAddress = address(uint160(slot2Value));\n    \u2502                                                   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint160' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n    \u256d\u25b8 src/PortalBase.sol:931:24\n    \u2502\n931 \u2502         uint8 header = uint8(packed);\n    \u2502                        \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint8' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n    \u256d\u25b8 src/PortalBase.sol:958:24\n    \u2502\n958 \u2502         uint8 header = uint8(packed);\n    \u2502                        \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint8' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n    \u256d\u25b8 src/PortalBase.sol:960:79\n    \u2502\n960 \u2502             packed = (packed & ~(uint256(type(uint96).max) << 56)) | (uint256(uint96(reserve)) << 56);\n    \u2502                                                                               \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint96' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n    \u256d\u25b8 src/PortalBase.sol:990:24\n    \u2502\n990 \u2502         uint8 header = uint8(packed);\n    \u2502                        \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint8' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n    \u256d\u25b8 src/PortalBase.sol:992:80\n    \u2502\n992 \u2502             packed = (packed & ~(uint256(type(uint96).max) << 152)) | (uint256(uint96(circulatingSupply)) << 152);\n    \u2502                                                                                \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n    \u2502\n    \u251c note: consider disabling this lint if you're certain the cast is safe\n    \u2502       \n    \u2502       // casting to 'uint96' is safe because [explain why]\n    \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n    \u2502       \n    \u2502       \n    \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/PortalBase.sol:1022:24\n     \u2502\n1022 \u2502         uint8 header = uint8(packed);\n     \u2502                        \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint8' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\n",
+      "stdout_tail": "Compiling 46 files with Solc 0.8.26\nSolc 0.8.26 finished in 702.73ms\nCompiler run successful with warnings:\nWarning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.\n   --> src/Portal.sol:489:59:\n    |\n489 |     function getFeeRate() external view override returns (uint256 buyFeeRate, uint256 sellFeeRate) {\n    |                                                           ^^^^^^^^^^^^^^^^^^\n\nWarning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.\n   --> src/Portal.sol:489:79:\n    |\n489 |     function getFeeRate() external view override returns (uint256 buyFeeRate, uint256 sellFeeRate) {\n    |                                                                               ^^^^^^^^^^^^^^^^^^^\n\nWarning (2018): Function state mutability can be restricted to view\n  --> src/Portal.sol:98:5:\n   |\n98 |     function sell(\n   |     ^ (Relevant source part starts here and spans across multiple lines).\n\nWarning (2018): Function state mutability can be restricted to pure\n   --> src/Portal.sol:903:5:\n    |\n903 |     function previewBuy(\n    |     ^ (Relevant source part starts here and spans across multiple lines).\n\nWarning (2018): Function state mutability can be restricted to pure\n   --> src/Portal.sol:919:5:\n    |\n919 |     function previewSell(\n    |     ^ (Relevant source part starts here and spans across multiple lines).\n\n"
+    },
+    "compiler_version": "v0.8.26+commit.8a97fa7a",
+    "contract_name": "Portal",
+    "source_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
+    "source_files": [],
+    "verified": true
+  },
   "target": {
     "address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
     "code_size_bytes": 2882,
@@ -42,9 +1542,10 @@
     "implementation_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a",
     "input_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
     "label": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
-    "native_balance_wei": 1361664283849714242664,
+    "native_balance_wei": 1345838606521179216905,
     "native_symbol": "BNB",
     "proxy_address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
     "source_address": "0xeb6c62d1885c421797d0c494e693c90d4b54125a"
-  }
+  },
+  "view_errors": {}
 }

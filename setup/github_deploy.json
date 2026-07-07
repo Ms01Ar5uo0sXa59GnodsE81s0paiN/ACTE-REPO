@@ -3,10 +3,10 @@
   "created": true,
   "dry_run": false,
   "owner": "incjanta",
-  "package_dir": "packages/bsc/0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+  "package_dir": "packages/bsc/0x1d85a38d4a3ea8a6ae74f185a1df267704e7a748",
   "private": false,
   "pushed": true,
-  "remote_url": "https://github.com/incjanta/Portal.git",
-  "repo_name": "Portal",
+  "remote_url": "https://github.com/incjanta/Bridgeindex.git",
+  "repo_name": "Bridgeindex",
   "schema_version": "acte-github-deploy-v1"
 }
