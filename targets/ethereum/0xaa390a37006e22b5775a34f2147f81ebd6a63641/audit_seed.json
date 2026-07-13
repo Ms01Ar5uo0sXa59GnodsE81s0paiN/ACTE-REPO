@@ -1,0 +1,20 @@
+{
+  "address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+  "chain": "ethereum",
+  "chain_id": 1,
+  "deployment_kind": "implementation_or_direct",
+  "explorer_url": "https://etherscan.io/address/0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+  "foundry_dir": "foundry_targets/ethereum/0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+  "implementation_address": "",
+  "label": "Torus",
+  "proxy_address": "",
+  "required_gates": [
+    "verified source fetched",
+    "Foundry project builds",
+    "runtime identity checked against live deployment",
+    "live context captured at a concrete block",
+    "GitHub deploy owner verified from token"
+  ],
+  "schema_version": "acte-audit-seed-v1",
+  "source_address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641"
+}
