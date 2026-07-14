@@ -1,0 +1,1105 @@
+{
+  "abi_inventory": {
+    "event_count": 14,
+    "events": [
+      "BuyAndBuild(uint256,uint256,address)",
+      "BuyAndBurn(uint256,uint256,address)",
+      "CreateAndStakeContractUpdated(address,address)",
+      "DailyAllocationETHBuildingUpdated(uint256)",
+      "DailyAllocationETHBurningUpdated(uint256)",
+      "DailyAllocationTitanXBuildingUpdated(uint256)",
+      "DailyAllocationTitanXBurningUpdated(uint256)",
+      "ETHToTitanXSlippageUpdated(uint8)",
+      "FractalFundsReleased(uint256,uint256)",
+      "LiquiditySlippageUpdated(uint8)",
+      "OwnershipTransferStarted(address,address)",
+      "OwnershipTransferred(address,address)",
+      "TitanXToTorusSlippageUpdated(uint8)",
+      "TorusBurned(uint256)"
+    ],
+    "function_count": 69,
+    "payable_functions": [
+      {
+        "input_count": 0,
+        "name": "distributeETHForBuilding",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBuilding()",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 0,
+        "name": "distributeETHForBurning",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBurning()",
+        "state_mutability": "payable"
+      }
+    ],
+    "privileged_or_role_functions": [
+      {
+        "input_count": 0,
+        "name": "DAILY_ALLOCATION_ETH_BURNING",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DAILY_ALLOCATION_ETH_BURNING()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "DAILY_ALLOCATION_TITAN_X_BURNING",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DAILY_ALLOCATION_TITAN_X_BURNING()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "POSITION_MANAGER",
+        "output_count": 1,
+        "payable": false,
+        "signature": "POSITION_MANAGER()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "acceptOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "acceptOwnership()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "burnFees",
+        "output_count": 2,
+        "payable": false,
+        "signature": "burnFees()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "burnTorus",
+        "output_count": 0,
+        "payable": false,
+        "signature": "burnTorus()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "distributeETHForBurning",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBurning()",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "distributeTitanXForBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "distributeTitanXForBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "ethIntervalsBurn",
+        "output_count": 2,
+        "payable": false,
+        "signature": "ethIntervalsBurn(uint32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "ethUsedForBurns",
+        "output_count": 1,
+        "payable": false,
+        "signature": "ethUsedForBurns()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastBurnedETHIntervalStartTimestamp",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastBurnedETHIntervalStartTimestamp()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastBurnedTitanXIntervalStartTimestamp",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastBurnedTitanXIntervalStartTimestamp()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastETHBurnIntervalNumber",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastETHBurnIntervalNumber()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastTitanXBurnIntervalNumber",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastTitanXBurnIntervalNumber()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "owner",
+        "output_count": 1,
+        "payable": false,
+        "signature": "owner()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "pendingOwner",
+        "output_count": 1,
+        "payable": false,
+        "signature": "pendingOwner()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "renounceOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceOwnership()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setCreateAndStakeContract",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setCreateAndStakeContract(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationETHBuilding",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationETHBuilding(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationETHBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationETHBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationTitanXBuilding",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationTitanXBuilding(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationTitanXBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationTitanXBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setLiquiditySlippage",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setLiquiditySlippage(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setSlippageForETHToTitanX",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSlippageForETHToTitanX(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setSlippageForTitanXToTorus",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSlippageForTitanXToTorus(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapETHForTorusAndBurn",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapETHForTorusAndBurn(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapTitanXForTorusAndBurn",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapTitanXForTorusAndBurn(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "titanXIntervalsBurn",
+        "output_count": 2,
+        "payable": false,
+        "signature": "titanXIntervalsBurn(uint32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "titanXUsedForBurns",
+        "output_count": 1,
+        "payable": false,
+        "signature": "titanXUsedForBurns()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalETHBurn",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalETHBurn()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalTitanXBurn",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalTitanXBurn()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalTitanXBurnt",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalTitanXBurnt()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalTorusBurnt",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalTorusBurnt()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "transferOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "transferOwnership(address)",
+        "state_mutability": "nonpayable"
+      }
+    ],
+    "value_movement_functions": [
+      {
+        "input_count": 0,
+        "name": "DAILY_ALLOCATION_ETH_BURNING",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DAILY_ALLOCATION_ETH_BURNING()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "DAILY_ALLOCATION_TITAN_X_BURNING",
+        "output_count": 1,
+        "payable": false,
+        "signature": "DAILY_ALLOCATION_TITAN_X_BURNING()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "addLiquidityToTorusTitanXPool",
+        "output_count": 0,
+        "payable": false,
+        "signature": "addLiquidityToTorusTitanXPool(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "burnFees",
+        "output_count": 2,
+        "payable": false,
+        "signature": "burnFees()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "burnTorus",
+        "output_count": 0,
+        "payable": false,
+        "signature": "burnTorus()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "distributeETHForBuilding",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBuilding()",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 0,
+        "name": "distributeETHForBurning",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBurning()",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "distributeTitanXForBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "distributeTitanXForBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "ethIntervalsBurn",
+        "output_count": 2,
+        "payable": false,
+        "signature": "ethIntervalsBurn(uint32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "ethUsedForBurns",
+        "output_count": 1,
+        "payable": false,
+        "signature": "ethUsedForBurns()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastBurnedETHIntervalStartTimestamp",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastBurnedETHIntervalStartTimestamp()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastBurnedTitanXIntervalStartTimestamp",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastBurnedTitanXIntervalStartTimestamp()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastETHBurnIntervalNumber",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastETHBurnIntervalNumber()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "lastTitanXBurnIntervalNumber",
+        "output_count": 1,
+        "payable": false,
+        "signature": "lastTitanXBurnIntervalNumber()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "liquidityAdded",
+        "output_count": 1,
+        "payable": false,
+        "signature": "liquidityAdded()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "liquidityAddedBuild",
+        "output_count": 1,
+        "payable": false,
+        "signature": "liquidityAddedBuild()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "liquiditySlippage",
+        "output_count": 1,
+        "payable": false,
+        "signature": "liquiditySlippage()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationETHBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationETHBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationTitanXBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationTitanXBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setLiquiditySlippage",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setLiquiditySlippage(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapETHForTorusAndBuild",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapETHForTorusAndBuild(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapETHForTorusAndBurn",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapETHForTorusAndBurn(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapTitanXForTorusAndBuild",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapTitanXForTorusAndBuild(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapTitanXForTorusAndBurn",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapTitanXForTorusAndBurn(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "titanXIntervalsBurn",
+        "output_count": 2,
+        "payable": false,
+        "signature": "titanXIntervalsBurn(uint32)",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "titanXUsedForBurns",
+        "output_count": 1,
+        "payable": false,
+        "signature": "titanXUsedForBurns()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalETHBurn",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalETHBurn()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalTitanXBurn",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalTitanXBurn()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalTitanXBurnt",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalTitanXBurnt()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalTorusBurnt",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalTorusBurnt()",
+        "state_mutability": "view"
+      }
+    ],
+    "write_function_count": 23,
+    "write_functions": [
+      {
+        "input_count": 0,
+        "name": "acceptOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "acceptOwnership()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "addLiquidityToTorusTitanXPool",
+        "output_count": 0,
+        "payable": false,
+        "signature": "addLiquidityToTorusTitanXPool(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "burnFees",
+        "output_count": 2,
+        "payable": false,
+        "signature": "burnFees()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "burnTorus",
+        "output_count": 0,
+        "payable": false,
+        "signature": "burnTorus()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "distributeETHForBuilding",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBuilding()",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 0,
+        "name": "distributeETHForBurning",
+        "output_count": 0,
+        "payable": true,
+        "signature": "distributeETHForBurning()",
+        "state_mutability": "payable"
+      },
+      {
+        "input_count": 1,
+        "name": "distributeTitanXForBuilding",
+        "output_count": 0,
+        "payable": false,
+        "signature": "distributeTitanXForBuilding(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "distributeTitanXForBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "distributeTitanXForBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "releaseFractalFunds",
+        "output_count": 0,
+        "payable": false,
+        "signature": "releaseFractalFunds()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "renounceOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceOwnership()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setCreateAndStakeContract",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setCreateAndStakeContract(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationETHBuilding",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationETHBuilding(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationETHBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationETHBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationTitanXBuilding",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationTitanXBuilding(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setDailyAllocationTitanXBurning",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setDailyAllocationTitanXBurning(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setLiquiditySlippage",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setLiquiditySlippage(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setSlippageForETHToTitanX",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSlippageForETHToTitanX(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "setSlippageForTitanXToTorus",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSlippageForTitanXToTorus(uint8)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapETHForTorusAndBuild",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapETHForTorusAndBuild(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapETHForTorusAndBurn",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapETHForTorusAndBurn(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapTitanXForTorusAndBuild",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapTitanXForTorusAndBuild(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "swapTitanXForTorusAndBurn",
+        "output_count": 0,
+        "payable": false,
+        "signature": "swapTitanXForTorusAndBurn(uint32)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "transferOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "transferOwnership(address)",
+        "state_mutability": "nonpayable"
+      }
+    ]
+  },
+  "audit_notes": [
+    "Live balances, storage slots, and common view calls are captured from the proxy/live address when a proxy is present.",
+    "Private mappings and structs are not globally enumerable without known keys.",
+    "DeepWiki candidates must be checked against this block-specific live state before proof.",
+    "ABI inventory and event samples are bounded hints for prioritization; proof must use source-level tests or fork probes.",
+    "Parameterized view probes use event-derived keys and dependency addresses, so failures are hints rather than complete absence of state."
+  ],
+  "balances": {
+    "erc20": [
+      {
+        "decimals": 18,
+        "human_balance": "0.0000001",
+        "name": "Wrapped Ether",
+        "raw_balance": "100000000000",
+        "symbol": "WETH",
+        "token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "usd_value": "unknown"
+      }
+    ],
+    "native": {
+      "human": "3.42871704785250062",
+      "raw": "3428717047852500620",
+      "symbol": "ETH"
+    }
+  },
+  "captured_at": "2026-07-14T09:58:29Z",
+  "chain": "ethereum",
+  "chain_id": 1,
+  "common_views": {
+    "DAILY_ALLOCATION_ETH_BUILDING": 1000,
+    "DAILY_ALLOCATION_ETH_BURNING": 500,
+    "DAILY_ALLOCATION_TITAN_X_BUILDING": 1000,
+    "DAILY_ALLOCATION_TITAN_X_BURNING": 200,
+    "POSITION_MANAGER": "0xc36442b4a4522e871399cd717abdd847ab11fe88",
+    "admin": "",
+    "decimals": null,
+    "ethToTitanXSlippage": 10,
+    "ethUsedForBuilds": 33746408521148501822,
+    "ethUsedForBurns": 99446922274637485425,
+    "factory": "",
+    "fractalETH": 1104000735456341638,
+    "fractalTitanX": 74043750293778189300123718320,
+    "lastBurnedETHIntervalStartTimestamp": 1784021400,
+    "lastBurnedTitanXIntervalStartTimestamp": 1784022600,
+    "lastETHBuildIntervalNumber": 53070,
+    "lastETHBuildIntervalStartTimestamp": 1784012400,
+    "lastETHBurnIntervalNumber": 53085,
+    "lastFractalRelease": 1780682423,
+    "lastTitanXBuildIntervalNumber": 53061,
+    "lastTitanXBuildIntervalStartTimestamp": 1784007000,
+    "lastTitanXBurnIntervalNumber": 53087,
+    "liquidityAdded": true,
+    "liquidityAddedBuild": true,
+    "liquiditySlippage": 10,
+    "lpToken": "0x00000000000000000000000000000000000000000000000000000000000fb44b0000000000000000000000000000000000000000000000000000000000000000",
+    "owner": "0x6d3a73f6bf13f08f8339890bbcfd774d4d85cd81",
+    "pendingOwner": "",
+    "startTimeStamp": 1752170400,
+    "titanXToTorusSlippage": 10,
+    "titanXUsedForBuilds": 1588781584550292723631574102135,
+    "titanXUsedForBurns": 4228011055445822390404019545470,
+    "token0": "",
+    "token1": "",
+    "torusCreateAndStake": "0xc7cc775b21f9df85e043c7fdd9dac60af0b69507",
+    "torusToken": "0xb47f575807fc5466285e1277ef8acfbb5c6686e8",
+    "totalETHBuilt": 33746408521148501822,
+    "totalETHBurn": 2218081612310240917,
+    "totalETHForBuild": 106634700085918065,
+    "totalSupply": null,
+    "totalTitanXBuilt": 1588781584550292723631574102135,
+    "totalTitanXBurn": 390047518149437255354831991687,
+    "totalTitanXBurnt": 0,
+    "totalTitanXForBuild": 5191597325509844865659654507,
+    "totalTorusBurnt": 29175181720594793773293318
+  },
+  "deepwiki_audit_focus": [
+    "Prioritize proof of unauthorized value extraction, excess token allocation, excess claim/reward, stuck-fund recovery abuse, and invariant-breaking swaps or migrations.",
+    "Check each payable and value-movement function against balance deltas, reserve/circulating-supply accounting, delegatecall target selection, and min-output checks.",
+    "Check privileged functions separately for externally reachable role bypass or misconfigured live roles; admin-key compromise alone is not a valid critical path.",
+    "Live target holds native balance: 3428717047852500620 wei ETH; every withdrawal/recovery/claim/swap path must reconcile against this custody.",
+    "Live target holds ERC20 balance: largest observed WETH 0.0000001; include token-drain and accounting-liability checks.",
+    "Payable entrypoints exist; test msg.value accounting, refund behavior, CREATE2/salt locking fees, and quote-token/native-token branch mismatches."
+  ],
+  "dependencies": [
+    {
+      "address": "0x6d3a73f6bf13f08f8339890bbcfd774d4d85cd81",
+      "name": "owner"
+    },
+    {
+      "address": "0xb47f575807fc5466285e1277ef8acfbb5c6686e8",
+      "name": "torusToken"
+    }
+  ],
+  "dependency_context": [
+    {
+      "address": "0x6d3a73f6bf13f08f8339890bbcfd774d4d85cd81",
+      "code_size_bytes": 0,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "owner",
+      "native_balance_wei": 5343196897425970
+    },
+    {
+      "address": "0xb47f575807fc5466285e1277ef8acfbb5c6686e8",
+      "code_size_bytes": 3598,
+      "erc20_identity": {
+        "decimals": 18,
+        "name": "Torus",
+        "symbol": "TORUS"
+      },
+      "name": "torusToken",
+      "native_balance_wei": 0
+    }
+  ],
+  "event_activity": {
+    "BuyAndBuild": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "BuyAndBuild(uint256,uint256,address)"
+    },
+    "BuyAndBurn": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "BuyAndBurn(uint256,uint256,address)"
+    }
+  },
+  "implementation": {
+    "address": "",
+    "code_size_bytes": 0,
+    "native_balance_wei": 0,
+    "provided": false,
+    "resolved_from_eip1967": false
+  },
+  "latest_block": 25530134,
+  "mapping_key_hints": {},
+  "parameterized_views": {
+    "ethIntervalsBuild": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": {
+            "amountAllocated": 0,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": {
+            "amountAllocated": 0,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "ethIntervalsBuild(uint32)"
+    },
+    "ethIntervalsBurn": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": {
+            "amountAllocated": 0,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": {
+            "amountAllocated": 0,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "ethIntervalsBurn(uint32)"
+    },
+    "getTitanXQuoteForETH": {
+      "inputs": [
+        {
+          "name": "baseAmount",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": 41438558393,
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000009a5ee38b9"
+        }
+      ],
+      "signature": "getTitanXQuoteForETH(uint256)"
+    },
+    "getTorusQuoteForTitanX": {
+      "inputs": [
+        {
+          "name": "baseAmount",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "getTorusQuoteForTitanX(uint256)"
+    },
+    "titanXIntervalsBuild": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": {
+            "amountAllocated": 0,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": {
+            "amountAllocated": 614444444444444444444444,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000821d199ea40856b1c71c0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "titanXIntervalsBuild(uint32)"
+    },
+    "titanXIntervalsBurn": {
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": {
+            "amountAllocated": 0,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": {
+            "amountAllocated": 1011200000000000000000000,
+            "amountBurned": 0
+          },
+          "raw_output": "0x00000000000000000000000000000000000000000000d621430800c8f80000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "titanXIntervalsBurn(uint32)"
+    }
+  },
+  "proxy_slots": {
+    "admin": "",
+    "admin_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "beacon": "",
+    "beacon_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "implementation": "",
+    "implementation_raw": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "rpc_endpoint_used": "https://rpc.ankr.com/eth/77455d9b7beab9043b352e3745df6443e4b16c756328849e15bd800e9d3171f1",
+  "schema_version": "acte-live-context-v3",
+  "source_identity": {
+    "build": {
+      "build_passed": true,
+      "command": "forge build",
+      "project_dir": "foundry_targets/ethereum/0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+      "returncode": 0,
+      "schema_version": "acte-foundry-build-verification-v1",
+      "stderr_tail": "      // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/contracts/src/TorusBuyAndProcess.sol:1049:37\n     \u2502\n1049 \u2502           uint128 amountPerInterval = uint128(\n     \u2502 \u250f\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u251b\n1050 \u2502 \u2503             dailyAllocation / INTERVALS_PER_DAY\n1051 \u2502 \u2503         );\n     \u2502 \u2517\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u251b\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint128' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/contracts/src/TorusBuyAndProcess.sol:1055:39\n     \u2502\n1055 \u2502             _totalAmountForInterval = uint128(totalTitanXForBuild);\n     \u2502                                       \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint128' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/contracts/src/TorusBuyAndProcess.sol:1073:19\n     \u2502\n1073 \u2502                 : uint32(timeElapsed / INTERVAL_TIME);\n     \u2502                   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint32' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/contracts/src/TorusBuyAndProcess.sol:1077:19\n     \u2502\n1077 \u2502                 : uint32(timeElapsed / INTERVAL_TIME) - 1;\n     \u2502                   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint32' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/contracts/src/TorusBuyAndProcess.sol:1082:37\n     \u2502\n1082 \u2502           uint128 amountPerInterval = uint128(\n     \u2502 \u250f\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u251b\n1083 \u2502 \u2503             dailyAllocation / INTERVALS_PER_DAY\n1084 \u2502 \u2503         );\n     \u2502 \u2517\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u251b\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint128' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\nwarning[unsafe-typecast]: typecasts that can truncate values should be checked\n     \u256d\u25b8 src/contracts/src/TorusBuyAndProcess.sol:1088:39\n     \u2502\n1088 \u2502             _totalAmountForInterval = uint128(totalETHForBuild);\n     \u2502                                       \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n     \u2502\n     \u251c note: consider disabling this lint if you're certain the cast is safe\n     \u2502       \n     \u2502       // casting to 'uint128' is safe because [explain why]\n     \u2502       // forge-lint: disable-next-line(unsafe-typecast)\n     \u2502       \n     \u2502       \n     \u2570 help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast\n\n",
+      "stdout_tail": "Compiling 43 files with Solc 0.8.26\nSolc 0.8.26 finished in 9.82s\nCompiler run successful!\n"
+    },
+    "compiler_version": "v0.8.26+commit.8a97fa7a",
+    "contract_name": "TorusBuyAndProcess",
+    "source_address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+    "source_files": [],
+    "verified": true
+  },
+  "target": {
+    "address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+    "code_size_bytes": 18698,
+    "deployment_kind": "implementation_or_direct",
+    "explorer_url": "https://etherscan.io/address/0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+    "implementation_address": "",
+    "input_address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+    "label": "Torus",
+    "native_balance_wei": 3428717047852500620,
+    "native_symbol": "ETH",
+    "proxy_address": "",
+    "source_address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641"
+  },
+  "view_errors": {}
+}
