@@ -1,0 +1,8 @@
+{
+  "format": "standard-json",
+  "source_count": 2,
+  "sources": [
+    ".venv/lib/pypy3.11/site-packages/snekmate/utils/math.vy",
+    "contracts/AMM.vy"
+  ]
+}
