@@ -1,5 +1,5 @@
 {
-  "active_target": "ethereum:0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+  "active_target": "ethereum:0xdc90f6b111df0c26e349d3cc8d3c357b191e109a",
   "schema_version": "acte-target-registry-v1",
   "targets": [
     {
@@ -129,7 +129,7 @@
       }
     },
     {
-      "active": true,
+      "active": false,
       "address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641",
       "chain": "ethereum",
       "chain_id": 1,
@@ -153,6 +153,40 @@
       "proxy_address": "",
       "schema_version": "acte-target-v1",
       "source_address": "0xaa390a37006e22b5775a34f2147f81ebd6a63641",
+      "target_type": "contract",
+      "workflow": {
+        "0_intake_address": "complete",
+        "1_materialize_verified_foundry": "pending",
+        "2_verify_foundry_build": "pending",
+        "3_collect_live_context": "pending",
+        "5_push_to_github_account": "pending"
+      }
+    },
+    {
+      "active": true,
+      "address": "0xdc90f6b111df0c26e349d3cc8d3c357b191e109a",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "deployment_kind": "implementation_or_direct",
+      "explorer_url": "https://etherscan.io/address/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a",
+      "implementation_address": "",
+      "input_address": "0xdc90f6b111df0c26e349d3cc8d3c357b191e109a",
+      "label": "yield-basis-token",
+      "native_symbol": "ETH",
+      "paths": {
+        "audit_seed": "targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a/audit_seed.json",
+        "contract_graph": "targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a/contract_graph.json",
+        "deploy_manifest": "targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a/github_deploy.json",
+        "entrypoints": "targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a/entrypoints.json",
+        "foundry_dir": "foundry_targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a",
+        "live_context": "targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a/live_context.json",
+        "source_response": "foundry_targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a/source-artifacts/source_response.json",
+        "target_dir": "targets/ethereum/0xdc90f6b111df0c26e349d3cc8d3c357b191e109a"
+      },
+      "protocol": "yield-basis-token",
+      "proxy_address": "",
+      "schema_version": "acte-target-v1",
+      "source_address": "0xdc90f6b111df0c26e349d3cc8d3c357b191e109a",
       "target_type": "contract",
       "workflow": {
         "0_intake_address": "complete",
