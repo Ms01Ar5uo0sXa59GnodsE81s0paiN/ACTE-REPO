@@ -1,0 +1,9 @@
+{
+  "build_passed": true,
+  "command": "forge build",
+  "project_dir": "foundry_targets/ethereum/0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "returncode": 0,
+  "schema_version": "acte-foundry-build-verification-v1",
+  "stderr_tail": "",
+  "stdout_tail": "Compiling 1 files with Solc 0.8.18\nSolc 0.8.18 finished in 275.55ms\nCompiler run successful!\n"
+}

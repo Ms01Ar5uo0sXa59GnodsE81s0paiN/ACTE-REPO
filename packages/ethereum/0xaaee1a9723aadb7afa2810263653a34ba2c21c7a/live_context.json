@@ -1,0 +1,566 @@
+{
+  "abi_inventory": {
+    "event_count": 13,
+    "events": [
+      "Approval(address,address,uint256)",
+      "AutoLiquify(uint256,uint256)",
+      "ClearStuck(uint256)",
+      "ClearToken(address,uint256)",
+      "EditTax(uint8,uint8,uint8)",
+      "OwnershipTransferred(address,address)",
+      "Transfer(address,address,uint256)",
+      "set_MaxTX(uint256)",
+      "set_MaxWallet(uint256)",
+      "set_Receivers(address,address,address,address)",
+      "set_SwapBack(uint256,bool)",
+      "user_TxExempt(address,bool)",
+      "user_exemptfromfees(address,bool)"
+    ],
+    "function_count": 36,
+    "payable_functions": [],
+    "privileged_or_role_functions": [
+      {
+        "input_count": 0,
+        "name": "_owner",
+        "output_count": 1,
+        "payable": false,
+        "signature": "_owner()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "getOwner",
+        "output_count": 1,
+        "payable": false,
+        "signature": "getOwner()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "owner",
+        "output_count": 1,
+        "payable": false,
+        "signature": "owner()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "renounceOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceOwnership()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 6,
+        "name": "setParameters",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setParameters(uint256,uint256,uint256,uint256,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "setStructure",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setStructure(uint256,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setSwapBackSettings",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSwapBackSettings(bool,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 5,
+        "name": "setWallets",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setWallets(address,address,address,address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "transferOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "transferOwnership(address)",
+        "state_mutability": "nonpayable"
+      }
+    ],
+    "value_movement_functions": [
+      {
+        "input_count": 0,
+        "name": "reduceFee",
+        "output_count": 0,
+        "payable": false,
+        "signature": "reduceFee()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setSwapBackSettings",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSwapBackSettings(bool,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "swapEnabled",
+        "output_count": 1,
+        "payable": false,
+        "signature": "swapEnabled()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "swapThreshold",
+        "output_count": 1,
+        "payable": false,
+        "signature": "swapThreshold()",
+        "state_mutability": "view"
+      },
+      {
+        "input_count": 0,
+        "name": "totalFee",
+        "output_count": 1,
+        "payable": false,
+        "signature": "totalFee()",
+        "state_mutability": "view"
+      }
+    ],
+    "write_function_count": 16,
+    "write_functions": [
+      {
+        "input_count": 2,
+        "name": "approve",
+        "output_count": 1,
+        "payable": false,
+        "signature": "approve(address,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "approveMax",
+        "output_count": 1,
+        "payable": false,
+        "signature": "approveMax(address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "clearStuckToken",
+        "output_count": 1,
+        "payable": false,
+        "signature": "clearStuckToken(address,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "manualSend",
+        "output_count": 0,
+        "payable": false,
+        "signature": "manualSend()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "maxWalletRule",
+        "output_count": 0,
+        "payable": false,
+        "signature": "maxWalletRule(uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "reduceFee",
+        "output_count": 0,
+        "payable": false,
+        "signature": "reduceFee()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "removeLimits",
+        "output_count": 0,
+        "payable": false,
+        "signature": "removeLimits()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "renounceOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "renounceOwnership()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 6,
+        "name": "setParameters",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setParameters(uint256,uint256,uint256,uint256,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "setStructure",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setStructure(uint256,uint256,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "setSwapBackSettings",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setSwapBackSettings(bool,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 5,
+        "name": "setWallets",
+        "output_count": 0,
+        "payable": false,
+        "signature": "setWallets(address,address,address,address,address)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 0,
+        "name": "startTrading",
+        "output_count": 0,
+        "payable": false,
+        "signature": "startTrading()",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 2,
+        "name": "transfer",
+        "output_count": 1,
+        "payable": false,
+        "signature": "transfer(address,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 3,
+        "name": "transferFrom",
+        "output_count": 1,
+        "payable": false,
+        "signature": "transferFrom(address,address,uint256)",
+        "state_mutability": "nonpayable"
+      },
+      {
+        "input_count": 1,
+        "name": "transferOwnership",
+        "output_count": 0,
+        "payable": false,
+        "signature": "transferOwnership(address)",
+        "state_mutability": "nonpayable"
+      }
+    ]
+  },
+  "audit_notes": [
+    "Live balances, storage slots, and common view calls are captured from the proxy/live address when a proxy is present.",
+    "Private mappings and structs are not globally enumerable without known keys.",
+    "DeepWiki candidates must be checked against this block-specific live state before proof.",
+    "ABI inventory and event samples are bounded hints for prioritization; proof must use source-level tests or fork probes.",
+    "Parameterized view probes use event-derived keys and dependency addresses, so failures are hints rather than complete absence of state."
+  ],
+  "balances": {
+    "erc20": [
+      {
+        "decimals": 18,
+        "human_balance": "0.0000001",
+        "name": "Wrapped Ether",
+        "raw_balance": "100000000000",
+        "symbol": "WETH",
+        "token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "usd_value": "unknown"
+      },
+      {
+        "decimals": 6,
+        "human_balance": "31.502479",
+        "name": "Tether USD",
+        "raw_balance": "31502479",
+        "symbol": "USDT",
+        "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "usd_value": "unknown"
+      },
+      {
+        "decimals": 6,
+        "human_balance": "10",
+        "name": "USD Coin",
+        "raw_balance": "10000000",
+        "symbol": "USDC",
+        "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "usd_value": "unknown"
+      }
+    ],
+    "native": {
+      "human": "0.003935208946035027",
+      "raw": "3935208946035027",
+      "symbol": "ETH"
+    }
+  },
+  "captured_at": "2026-07-16T00:48:54Z",
+  "chain": "ethereum",
+  "chain_id": 1,
+  "common_views": {
+    "TradingOpen": true,
+    "_maxTxAmount": 390570159911439123354797210149241,
+    "_maxWalletToken": 390570159911439123354797210149241,
+    "_owner": "",
+    "admin": "",
+    "decimals": 18,
+    "factory": "",
+    "getOwner": "",
+    "name": "Mog Coin",
+    "owner": "",
+    "pair": "0xc2eab7d33d3cb97692ecb231a5d0e4a649cb539d",
+    "router": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "showSupply": 360442075042142201684597972390748,
+    "swapEnabled": true,
+    "swapThreshold": 2944830000000000000000000000000,
+    "symbol": "Mog",
+    "token0": "",
+    "token1": "",
+    "totalFee": 4,
+    "totalSupply": 390570159911439123354797210149241
+  },
+  "deepwiki_audit_focus": [
+    "Prioritize proof of unauthorized value extraction, excess token allocation, excess claim/reward, stuck-fund recovery abuse, and invariant-breaking swaps or migrations.",
+    "Check each payable and value-movement function against balance deltas, reserve/circulating-supply accounting, delegatecall target selection, and min-output checks.",
+    "Check privileged functions separately for externally reachable role bypass or misconfigured live roles; admin-key compromise alone is not a valid critical path.",
+    "Live target holds native balance: 3935208946035027 wei ETH; every withdrawal/recovery/claim/swap path must reconcile against this custody.",
+    "Live target holds ERC20 balance: largest observed WETH 0.0000001; include token-drain and accounting-liability checks."
+  ],
+  "dependencies": [
+    {
+      "address": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+      "name": "router"
+    }
+  ],
+  "dependency_context": [
+    {
+      "address": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+      "code_size_bytes": 21943,
+      "erc20_identity": {
+        "decimals": null,
+        "name": "",
+        "symbol": ""
+      },
+      "name": "router",
+      "native_balance_wei": 25000000000000000
+    }
+  ],
+  "event_activity": {
+    "ClearToken": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "ClearToken(address,uint256)"
+    },
+    "set_SwapBack": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "set_SwapBack(uint256,bool)"
+    },
+    "user_exemptfromfees": {
+      "sample_count": 0,
+      "sample_logs": [],
+      "sample_window_blocks": 10000,
+      "signature": "user_exemptfromfees(address,bool)"
+    }
+  },
+  "implementation": {
+    "address": "",
+    "code_size_bytes": 0,
+    "native_balance_wei": 0,
+    "provided": false,
+    "resolved_from_eip1967": false
+  },
+  "latest_block": 25541742,
+  "mapping_key_hints": {},
+  "parameterized_views": {
+    "allowance": {
+      "inputs": [
+        {
+          "name": "holder",
+          "type": "address"
+        },
+        {
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+            "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a"
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+            "0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+          ],
+          "decoded_output": 115792089237316195423570985008687907853269984665640564039457584007913129639935,
+          "raw_output": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        {
+          "args": [
+            "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+            "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a"
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "allowance(address,address)"
+    },
+    "balanceOf": {
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a"
+          ],
+          "decoded_output": 1398616187385371058320338596,
+          "raw_output": "0x00000000000000000000000000000000000000000484e87f711bcff7baf26ea4"
+        },
+        {
+          "args": [
+            "0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "balanceOf(address)"
+    },
+    "checkRatio": {
+      "inputs": [
+        {
+          "name": "ratio",
+          "type": "uint256"
+        },
+        {
+          "name": "accuracy",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 3,
+      "samples": [
+        {
+          "args": [
+            0,
+            0
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            0,
+            1
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1,
+            0
+          ],
+          "decoded_output": false,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "checkRatio(uint256,uint256)"
+    },
+    "showBacking": {
+      "inputs": [
+        {
+          "name": "accuracy",
+          "type": "uint256"
+        }
+      ],
+      "sample_count": 2,
+      "samples": [
+        {
+          "args": [
+            0
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "args": [
+            1
+          ],
+          "decoded_output": 0,
+          "raw_output": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "signature": "showBacking(uint256)"
+    }
+  },
+  "proxy_slots": {
+    "admin": "",
+    "admin_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "beacon": "",
+    "beacon_raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "implementation": "",
+    "implementation_raw": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "rpc_endpoint_used": "https://rpc.ankr.com/eth/77455d9b7beab9043b352e3745df6443e4b16c756328849e15bd800e9d3171f1",
+  "schema_version": "acte-live-context-v3",
+  "source_identity": {
+    "build": {
+      "build_passed": true,
+      "command": "forge build",
+      "project_dir": "foundry_targets/ethereum/0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+      "returncode": 0,
+      "schema_version": "acte-foundry-build-verification-v1",
+      "stderr_tail": "",
+      "stdout_tail": "Compiling 1 files with Solc 0.8.18\nSolc 0.8.18 finished in 275.55ms\nCompiler run successful!\n"
+    },
+    "compiler_version": "v0.8.18+commit.87f61d96",
+    "contract_name": "MOG",
+    "source_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+    "source_files": [],
+    "verified": true
+  },
+  "target": {
+    "address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+    "code_size_bytes": 8321,
+    "deployment_kind": "implementation_or_direct",
+    "explorer_url": "https://etherscan.io/address/0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+    "implementation_address": "",
+    "input_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+    "label": "mogcoin",
+    "native_balance_wei": 3935208946035027,
+    "native_symbol": "ETH",
+    "proxy_address": "",
+    "source_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a"
+  },
+  "view_errors": {}
+}
