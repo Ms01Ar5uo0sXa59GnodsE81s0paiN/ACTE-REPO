@@ -1,0 +1,13 @@
+{
+  "address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "chain": "ethereum",
+  "chain_id": 1,
+  "explorer_url": "https://etherscan.io/address/0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "implementation": "",
+  "implementation_address": "",
+  "input_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "live_context_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "proxy": false,
+  "proxy_address": "",
+  "source_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a"
+}
