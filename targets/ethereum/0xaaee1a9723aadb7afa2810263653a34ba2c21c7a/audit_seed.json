@@ -1,0 +1,20 @@
+{
+  "address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "chain": "ethereum",
+  "chain_id": 1,
+  "deployment_kind": "implementation_or_direct",
+  "explorer_url": "https://etherscan.io/address/0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "foundry_dir": "foundry_targets/ethereum/0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+  "implementation_address": "",
+  "label": "mogcoin",
+  "proxy_address": "",
+  "required_gates": [
+    "verified source fetched",
+    "Foundry project builds",
+    "runtime identity checked against live deployment",
+    "live context captured at a concrete block",
+    "GitHub deploy owner verified from token"
+  ],
+  "schema_version": "acte-audit-seed-v1",
+  "source_address": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a"
+}
